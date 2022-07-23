@@ -14,6 +14,8 @@ const Tab = createMaterialTopTabNavigator();
 const Discover = () => {
   const data = useAppSelector(state => state.counterSlice.data);
   const dispatch = useAppDispatch();
+  // const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
+
   const callApi = async () => {
     try {
       await axios({
@@ -62,6 +64,7 @@ const Discover = () => {
         <Tab.Screen name="Upcoming" component={Upcoming} />
         <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
+      {/* {visiable && <PopupVideo />} */}
     </View>
   );
 };
