@@ -7,17 +7,20 @@ import Upcoming from './components/up-coming';
 import Search from './components/search';
 import NowPlaying from './components/now-playing';
 import axios from 'axios';
-import {useAppDispatch} from '../../app/store';
+import {useAppDispatch, useAppSelector} from '../../app/store';
 import {
   setData,
   setDataUpComingResponse,
   setLoadingData,
   setDataSearch,
 } from './discoverSlice';
+import PopupVideo from '../popup-video';
 
 const Tab = createMaterialTopTabNavigator();
 const Discover = () => {
   const dispatch = useAppDispatch();
+  const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
+
   const callApi = async () => {
     try {
       //call api Now Playing
@@ -87,6 +90,7 @@ const Discover = () => {
         <Tab.Screen name="Upcoming" component={Upcoming} />
         <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
+      {visiable && <PopupVideo />}
     </View>
   );
 };
