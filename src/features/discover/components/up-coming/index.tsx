@@ -1,29 +1,32 @@
 import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useAppSelector} from '../../../../app/store';
+import images from '../../../../assets/images';
 
 const Upcoming = () => {
   const dataUpComing = useAppSelector(state => state.counterSlice.dataUpComing);
-  console.log('dataUpComing new', dataUpComing);
+  const loadingData = useAppSelector(state => state.counterSlice.loadingData);
+
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
       <View style={styles.container}>
         <View style={styles.headerContent}>
-          {dataUpComing.map(item => {
+          {dataUpComing.map((item, index) => {
             return (
-              <View style={styles.blockContent}>
+              <View style={styles.blockContent} key={index}>
                 <View style={styles.content}>
                   <Image
+                    defaultSource={images.LOGO_ICON}
                     style={styles.fullWidth}
-                    resizeMode={'stretch'}
+                    resizeMode={'cover'}
                     source={{
                       uri: item.image,
                     }}
                   />
-                  <Text numberOfLines={2} style={styles.textAlign}>
-                    {item.title}
-                  </Text>
                 </View>
+                <Text numberOfLines={2} style={styles.textAlign}>
+                  {item.title}
+                </Text>
               </View>
             );
           })}
@@ -57,7 +60,13 @@ const styles = StyleSheet.create({
     height: '80%',
     backgroundColor: 'yellow',
   },
-  fullWidth: {width: '100%', height: '100%'},
+  imageBackground: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    zIndex: 1,
+  },
+  fullWidth: {width: '100%', height: '100%', zIndex: 2},
   textAlign: {textAlign: 'center', paddingVertical: 3},
 });
 

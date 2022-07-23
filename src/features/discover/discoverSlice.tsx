@@ -1,14 +1,25 @@
 import {createSlice} from '@reduxjs/toolkit';
-import type {PayloadAction} from '@reduxjs/toolkit';
+import _ from 'lodash';
 
+interface DataSearchType {
+  id: string;
+  resultType: string;
+  image: string;
+  title: string;
+  description: string;
+}
 export interface CounterState {
   data: Array<any>;
+  loadingData: boolean;
   dataUpComing: Array<any>;
+  dataSearch: DataSearchType[];
 }
 
 const initialState: CounterState = {
   data: [],
+  loadingData: false,
   dataUpComing: [],
+  dataSearch: [],
 };
 
 export const counterSlice = createSlice({
@@ -21,10 +32,32 @@ export const counterSlice = createSlice({
     setDataUpComingResponse: (state, action) => {
       state.dataUpComing = action.payload;
     },
+    setLoadingData: (state, action) => {
+      state.loadingData = action.payload;
+    },
+    setDataSearch: (state, action) => {
+      state.dataSearch = action.payload;
+    },
+    searchApi: (state, action) => {
+      console.log('data redux', state.dataSearch);
+      const response = state.dataSearch.filter(item => {
+        console.log('item data', item);
+        const text = action.payload.toLowerCase();
+        const itemData = item.title.toLowerCase();
+        return itemData.indexOf(text) > -1;
+      });
+      state.dataSearch = response;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {setData, setDataUpComingResponse} = counterSlice.actions;
+export const {
+  setData,
+  setDataUpComingResponse,
+  setLoadingData,
+  setDataSearch,
+  searchApi,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;
