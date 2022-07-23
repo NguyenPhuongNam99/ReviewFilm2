@@ -6,13 +6,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useAppSelector, useAppDispatch} from '../../../../app/store';
+import {useAppDispatch} from '../../../../app/store';
 import {searchApi} from '../../discoverSlice';
 
 const Search = () => {
   const [valueInput, setValueInput] = useState<string>('');
-  const dataSearch = useAppSelector(state => state.counterSlice.dataSearch);
-  console.log('dataFake search', dataSearch);
   const dispatch = useAppDispatch();
   // console.log('date rdeux', dataSearch);
 

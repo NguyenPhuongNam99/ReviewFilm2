@@ -37,6 +37,7 @@ const Discover = () => {
         })
         .catch(error => {
           dispatch(setLoadingData(false));
+          console.log('error', error);
         });
 
       //call api Up Playing
@@ -68,7 +69,7 @@ const Discover = () => {
   };
 
   React.useEffect(() => {
-    callApi().then(res => console.log('ressssss', res));
+    callApi();
     // getDataUsingSimpleGetCall();
   }, []);
   return (

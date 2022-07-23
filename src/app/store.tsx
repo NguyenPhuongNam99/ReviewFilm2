@@ -4,12 +4,28 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import counterSlice from '../features/discover/discoverSlice';
 import popupVideoSlice from '../features/popup-video/popupVideoSlice';
 
+import {persistReducer} from 'redux-persist';
+import {combineReducers} from 'redux';
+import thunk from 'redux-thunk';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import storage from 'redux-persist/lib/storage';
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+  // debug: true,
+  // whitelist: ['fetchedMemeSlice', 'loadMemesSlice'],
+  // timeout: 20000,
+};
+
+const reducers = combineReducers({
+  counterSlice: counterSlice,
+  popupVideoSlice,
+});
+const persistedReducer = persistReducer(persistConfig, reducers);
+
 export const store = configureStore({
-  reducer: {
-    counterSlice: counterSlice,
-    popupVideoSlice,
-    // scheduleOverviewSlice: scheduleOverviewSlice,
-  },
+  reducer: persistedReducer,
+  middleware: [thunk],
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
