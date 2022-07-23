@@ -2,10 +2,12 @@ import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 // import scheduleOverviewSlice from '../features/scheduleOverview/scheduleOverviewSlice';
 import counterSlice from '../features/discover/discoverSlice';
+import MovieSlice from '../features/MovieDetail/MovieSlice';
 
 export const store = configureStore({
   reducer: {
     counterSlice: counterSlice,
+    MovieSlice:MovieSlice
     // scheduleOverviewSlice: scheduleOverviewSlice,
   },
 });

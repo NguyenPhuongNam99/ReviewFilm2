@@ -13,7 +13,6 @@ import {setData, setDataUpComingResponse} from './discoverSlice';
 const Tab = createMaterialTopTabNavigator();
 const Discover = () => {
   const data = useAppSelector(state => state.counterSlice.data);
-  console.log('data new', data);
   const dispatch = useAppDispatch();
   const callApi = async () => {
     try {
