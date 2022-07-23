@@ -1,6 +1,8 @@
 import React, {useCallback, useMemo, useRef} from 'react';
 import {
   View,
+  Text,
+
   StyleSheet,
   TouchableNativeFeedback,
   ScrollView,
@@ -12,6 +14,7 @@ import {useAppDispatch, useAppSelector} from '../../app/store';
 const PopupVideo = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const dataClick = useAppSelector(state => state.popupVideoSlice.dataClick);
+  console.log('dataclick new', dataClick);
 
   const dispatch = useAppDispatch();
 
@@ -33,6 +36,12 @@ const PopupVideo = () => {
         onClose={() => dispatch(setVisiable(false))}
         onChange={handleSheetChanges}>
         <ScrollView>
+          <View
+            style={{
+              width: '100%',
+              height: 400,
+              backgroundColor: 'green',
+            }}></View>
           <View style={styles.contentContainer}></View>
         </ScrollView>
       </BottomSheet>

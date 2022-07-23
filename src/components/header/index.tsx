@@ -1,20 +1,43 @@
 import React from 'react';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {styles} from './styles';
+import {images} from '../../assets';
 
-const Header = () => {
+const Header = ({
+  title = 'Movies',
+  iconLeft,
+  iconRight,
+  onLeftPress,
+  onRightPress,
+  lStyle,
+  rStyle,
+}) => {
   return (
     <>
       <SafeAreaView />
       <View style={styles.headerContainer}>
-        <TouchableOpacity style={[styles.widthItem, styles.firtShow]}>
-          <Feather name="align-justify" size={20} color={'white'} />
-        </TouchableOpacity>
-        <View style={[styles.widthItem, styles.center]}>
-          <Text style={styles.colorWhite}>Movies</Text>
+        <View style={styles.left}>
+          {iconLeft && (
+            <TouchableOpacity
+              onPress={onLeftPress}
+              style={[styles.widthItem, styles.firtShow]}>
+              <Image source={iconLeft} style={[styles.icLeft, lStyle]} />
+            </TouchableOpacity>
+          )}
         </View>
-        <View style={styles.widthItem} />
+
+        <Text style={styles.colorWhite}>{title}</Text>
+
+        <View style={styles.right}>
+          {iconRight && (
+            <TouchableOpacity
+              onPress={onRightPress}
+              style={[styles.widthItem, styles.firtShow]}>
+              <Image source={iconRight} style={[styles.icLeft, rStyle]} />
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
     </>
   );

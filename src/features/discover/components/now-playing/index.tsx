@@ -13,8 +13,10 @@ import images from '../../../../assets/images';
 import {setVisiable, setDataClick} from '../../../popup-video/popupVideoSlice';
 import {useAppDispatch} from '../../../../app/store';
 
-const NowPlaying = () => {
+const NowPlaying = (props: any) => {
   const data = useAppSelector(state => state.counterSlice.data);
+  console.log('===========data=========', data);
+
   const loadingData = useAppSelector(state => state.counterSlice.loadingData);
 
   const dispatch = useAppDispatch();
@@ -24,6 +26,33 @@ const NowPlaying = () => {
     dispatch(setVisiable(true));
   };
   return (
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.headerContent}>
+          {data.map((item, index) => {
+            return (
+              <TouchableOpacity
+                key={index}
+                style={styles.blockContent}
+                onPress={() =>
+                  props.navigation.navigate('MovieDetail', {item})
+                }>
+                <View style={styles.content}>
+                  <Image
+                    style={styles.fullWidth}
+                    resizeMode={'stretch'}
+                    source={{
+                      uri: item.image,
+                    }}
+                  />
+                  <Text numberOfLines={2} style={styles.textAlign}>
+                    {item.title}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            );
+          })}
+
     <>
       {loadingData ? (
         <View style={styles.loading}>

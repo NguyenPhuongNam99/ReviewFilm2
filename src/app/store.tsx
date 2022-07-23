@@ -2,7 +2,17 @@ import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 // import scheduleOverviewSlice from '../features/scheduleOverview/scheduleOverviewSlice';
 import counterSlice from '../features/discover/discoverSlice';
+import MovieSlice from '../features/MovieDetail/MovieSlice';
 import popupVideoSlice from '../features/popup-video/popupVideoSlice';
+
+export const store = configureStore({
+  reducer: {
+    counterSlice: counterSlice,
+    MovieSlice: MovieSlice,
+    popupVideoSlice,
+    // scheduleOverviewSlice: scheduleOverviewSlice,
+  },
+
 
 import {persistReducer} from 'redux-persist';
 import {combineReducers} from 'redux';

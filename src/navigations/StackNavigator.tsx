@@ -7,6 +7,8 @@ import {
 	createStackNavigator,
 } from '@react-navigation/stack';
 import BottomTabNavigation from './BottomTabNavigation';
+import MovieDetail from '../features/MovieDetail';
+import Trailer from '../features/Trailer';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +20,8 @@ export default function StackNavigator() {
     }}>
     <>
       <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
+      <Stack.Screen name="MovieDetail" component={MovieDetail} />
+      <Stack.Screen name="Trailer" component={Trailer} />
     </>
   </Stack.Navigator>
   )
