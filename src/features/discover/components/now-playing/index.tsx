@@ -5,14 +5,26 @@ import {
   StyleSheet,
   Image,
   ScrollView,
+  ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
 import {useAppSelector} from '../../../../app/store';
+import images from '../../../../assets/images';
+import {setVisiable, setDataClick} from '../../../popup-video/popupVideoSlice';
+import {useAppDispatch} from '../../../../app/store';
 
 const NowPlaying = (props: any) => {
   const data = useAppSelector(state => state.counterSlice.data);
   console.log('===========data=========', data);
 
+  const loadingData = useAppSelector(state => state.counterSlice.loadingData);
+
+  const dispatch = useAppDispatch();
+
+  const _onPress = (item: any) => {
+    dispatch(setDataClick(item));
+    dispatch(setVisiable(true));
+  };
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -40,15 +52,52 @@ const NowPlaying = (props: any) => {
               </TouchableOpacity>
             );
           })}
+
+    <>
+      {loadingData ? (
+        <View style={styles.loading}>
+          <ActivityIndicator size={'large'} color={'yellow'} />
         </View>
-      </View>
-    </ScrollView>
+      ) : (
+        <>
+          <ScrollView style={styles.container}>
+            <View style={styles.container}>
+              <View style={styles.headerContent}>
+                {data.map((item, index) => {
+                  return (
+                    <TouchableOpacity
+                      style={styles.blockContent}
+                      key={index}
+                      onPress={() => _onPress(item)}>
+                      <View style={styles.content}>
+                        <Image
+                          defaultSource={images.LOGO_ICON}
+                          style={styles.fullWidth}
+                          resizeMode={'cover'}
+                          source={{
+                            uri: item.image,
+                          }}
+                        />
+                      </View>
+                      <Text numberOfLines={2} style={styles.textAlign}>
+                        {item.title}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+            </View>
+          </ScrollView>
+        </>
+      )}
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: '100%',
+    height: '100%',
     backgroundColor: 'black',
   },
   headerContent: {
@@ -69,10 +118,22 @@ const styles = StyleSheet.create({
   content: {
     width: '100%',
     height: '80%',
-    backgroundColor: 'yellow',
   },
-  fullWidth: {width: '100%', height: '100%'},
+  imageBackground: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    zIndex: 1,
+  },
+  fullWidth: {width: '100%', height: '100%', zIndex: 2},
   textAlign: {textAlign: 'center', paddingVertical: 3},
+  loading: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black',
+  },
 });
 
 export default NowPlaying;

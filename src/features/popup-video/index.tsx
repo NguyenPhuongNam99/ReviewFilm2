@@ -2,6 +2,7 @@ import React, {useCallback, useMemo, useRef} from 'react';
 import {
   View,
   Text,
+
   StyleSheet,
   TouchableNativeFeedback,
   ScrollView,
@@ -41,6 +42,7 @@ const PopupVideo = () => {
               height: 400,
               backgroundColor: 'green',
             }}></View>
+          <View style={styles.contentContainer}></View>
         </ScrollView>
       </BottomSheet>
     </TouchableNativeFeedback>
@@ -48,6 +50,11 @@ const PopupVideo = () => {
 };
 const styles = StyleSheet.create({
   container: {width: '100%', height: '100%'},
+  contentContainer: {
+    width: '100%',
+    height: 400,
+    backgroundColor: 'green',
+  },
 });
 
 export default PopupVideo;

@@ -8,7 +8,13 @@ import Search from './components/search';
 import NowPlaying from './components/now-playing';
 import axios from 'axios';
 import {useAppDispatch, useAppSelector} from '../../app/store';
-import {setData, setDataUpComingResponse} from './discoverSlice';
+import {
+  setData,
+  setDataUpComingResponse,
+  setLoadingData,
+  setDataSearch,
+} from './discoverSlice';
+import PopupVideo from '../popup-video';
 
 const Tab = createMaterialTopTabNavigator();
 const Discover = () => {
@@ -16,18 +22,29 @@ const Discover = () => {
   const dispatch = useAppDispatch();
   // const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
 
+  const dispatch = useAppDispatch();
+  const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
+
   const callApi = async () => {
     try {
+      //call api Now Playing
+      dispatch(setLoadingData(true));
       await axios({
         method: 'get',
         url: 'https://imdb-api.com/en/API/InTheaters/k_ftyzt2lc',
-      }).then(apiResponse => {
-        // process the response
-        const products = apiResponse.data;
-        dispatch(setData(products.items));
-        console.log('product new', products.items);
-      });
+      })
+        .then(apiResponse => {
+          // process the response
+          const products = apiResponse.data;
+          dispatch(setData(products.items));
+          dispatch(setLoadingData(false));
+        })
+        .catch(error => {
+          dispatch(setLoadingData(false));
+          console.log('error', error);
+        });
 
+      //call api Up Playing
       await axios({
         method: 'get',
         url: 'https://imdb-api.com/en/API/ComingSoon/k_ftyzt2lc',
@@ -35,15 +52,29 @@ const Discover = () => {
         // process the response
         const products = apiResponse.data;
         dispatch(setDataUpComingResponse(products.items));
-        console.log('video new', products.items);
       });
+
+      //call api Search
+      await axios
+        .get(
+          'https://imdb-api.com/en/API/SearchTitle/k_ftyzt2lc/inception%202010',
+        )
+        .then(function (response) {
+          // handle success
+          dispatch(setDataSearch(JSON.stringify(response.data.results)));
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error.message);
+        });
     } catch (error) {
       console.log('error', error);
     }
   };
 
   React.useEffect(() => {
-    callApi().then(res => console.log('ressssss', res));
+    callApi();
+    // getDataUsingSimpleGetCall();
   }, []);
   return (
     <View style={styles.container}>
@@ -64,7 +95,8 @@ const Discover = () => {
         <Tab.Screen name="Upcoming" component={Upcoming} />
         <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
-      {/* {visiable && <PopupVideo />} */}
+ 
+      {visiable && <PopupVideo />}
     </View>
   );
 };
