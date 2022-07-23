@@ -11,7 +11,7 @@ const Header = ({
   onLeftPress,
   onRightPress,
   lStyle,
-  rStyle
+  rStyle,
 }) => {
   return (
     <>
@@ -19,8 +19,10 @@ const Header = ({
       <View style={styles.headerContainer}>
         <View style={styles.left}>
           {iconLeft && (
-            <TouchableOpacity onPress={onLeftPress} style={[styles.widthItem, styles.firtShow]}>
-              <Image source={iconLeft} style={[styles.icLeft,lStyle]} />
+            <TouchableOpacity
+              onPress={onLeftPress}
+              style={[styles.widthItem, styles.firtShow]}>
+              <Image source={iconLeft} style={[styles.icLeft, lStyle]} />
             </TouchableOpacity>
           )}
         </View>
@@ -29,8 +31,10 @@ const Header = ({
 
         <View style={styles.right}>
           {iconRight && (
-            <TouchableOpacity onPress={onRightPress} style={[styles.widthItem, styles.firtShow]}>
-              <Image source={iconRight} style={[styles.icLeft,rStyle]} />
+            <TouchableOpacity
+              onPress={onRightPress}
+              style={[styles.widthItem, styles.firtShow]}>
+              <Image source={iconRight} style={[styles.icLeft, rStyle]} />
             </TouchableOpacity>
           )}
         </View>

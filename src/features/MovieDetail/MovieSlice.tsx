@@ -14,21 +14,19 @@ export const MovieSlice = createSlice({
   initialState,
   reducers: {
     SaveMovie: (state, action) => {
-      const movie = action.payload
-      let _data = state.data
-      if(_data.length === 0){
-        state.data=[movie]
-      }
-      else{
-      const check = _data.some(item=>item.id === movie.id)
-      if(!check){
-        _data = _data.concat(movie)
-        state.data = _data
-      }
-      else{
-        _data = _data.filter(item=>item.id!== movie.id)
-        state.data = _data
-      }
+      const movie = action.payload;
+      let _data = state.data;
+      if (_data.length === 0) {
+        state.data = [movie];
+      } else {
+        const check = _data.some(item => item.id === movie.id);
+        if (!check) {
+          _data = _data.concat(movie);
+          state.data = _data;
+        } else {
+          _data = _data.filter(item => item.id !== movie.id);
+          state.data = _data;
+        }
       }
     },
   },

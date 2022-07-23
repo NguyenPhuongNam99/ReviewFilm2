@@ -1,21 +1,30 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import {useAppSelector} from '../../../../app/store';
 
-const NowPlaying = (props:any) => {
+const NowPlaying = (props: any) => {
   const data = useAppSelector(state => state.counterSlice.data);
-  console.log('===========data=========',data)
+  console.log('===========data=========', data);
 
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.headerContent}>
-          {data.map((item,index) => {
+          {data.map((item, index) => {
             return (
-              <TouchableOpacity 
-                key={index} style={styles.blockContent}
-                onPress={()=>props.navigation.navigate('MovieDetail',{item})}
-              >
+              <TouchableOpacity
+                key={index}
+                style={styles.blockContent}
+                onPress={() =>
+                  props.navigation.navigate('MovieDetail', {item})
+                }>
                 <View style={styles.content}>
                   <Image
                     style={styles.fullWidth}

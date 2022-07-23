@@ -1,18 +1,11 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-} from 'react-native';
+import {Text, View, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import {useAppSelector} from '../../app/store';
 import Header from '../../components/header';
 
-const MyLibrary = (props:any) => {
+const MyLibrary = (props: any) => {
   const data = useAppSelector(state => state.MovieSlice.data);
 
- 
   return (
     <View style={{flex: 1}}>
       <Header title="My Library" />
@@ -22,8 +15,7 @@ const MyLibrary = (props:any) => {
             <TouchableOpacity
               key={index}
               style={styles.blockContent}
-              onPress={()=>props.navigation.navigate('MovieDetail',{item})}
-            >
+              onPress={() => props.navigation.navigate('MovieDetail', {item})}>
               <View style={styles.content}>
                 <Image
                   style={styles.fullWidth}

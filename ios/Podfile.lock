@@ -91,6 +91,9 @@ PODS:
     - FBLazyVector (= 0.69.2)
     - RCTRequired (= 0.69.2)
     - React-Core (= 0.69.2)
+  - RCTYouTube (2.0.2):
+    - React
+    - YoutubePlayer-in-WKWebView (~> 0.3.1)
   - React (0.69.2):
     - React-Core (= 0.69.2)
     - React-Core/DevSupport (= 0.69.2)
@@ -292,6 +295,8 @@ PODS:
     - RCTTypeSafety
     - React
     - ReactCommon/turbomodule/core
+  - react-native-webview (11.22.7):
+    - React-Core
   - React-perflogger (0.69.2)
   - React-RCTActionSheet (0.69.2):
     - React-Core/RCTActionSheetHeaders (= 0.69.2)
@@ -398,6 +403,7 @@ PODS:
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
+  - YoutubePlayer-in-WKWebView (0.3.8)
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
@@ -430,6 +436,7 @@ DEPENDENCIES:
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
+  - RCTYouTube (from `../node_modules/react-native-youtube`)
   - React (from `../node_modules/react-native/`)
   - React-bridging (from `../node_modules/react-native/ReactCommon`)
   - React-callinvoker (from `../node_modules/react-native/ReactCommon/callinvoker`)
@@ -445,6 +452,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -481,6 +489,7 @@ SPEC REPOS:
     - OpenSSL-Universal
     - SocketRocket
     - YogaKit
+    - YoutubePlayer-in-WKWebView
 
 EXTERNAL SOURCES:
   boost:
@@ -499,6 +508,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
     :path: "../node_modules/react-native/Libraries/TypeSafety"
+  RCTYouTube:
+    :path: "../node_modules/react-native-youtube"
   React:
     :path: "../node_modules/react-native/"
   React-bridging:
@@ -525,6 +536,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -584,6 +597,7 @@ SPEC CHECKSUMS:
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: b723d4d6da2795df58189a01f92856b6912cf256
   RCTTypeSafety: 3973d2fcf39f43f7819e840d56ea6b2fe45996a0
+  RCTYouTube: a8bb45705622a6fc9decf64be04128d3658ed411
   React: 242d4ffb093ed57c4761307a69b23b2479930ae9
   React-bridging: 66938204bc9d703b9c357201a40bf498aeb14412
   React-callinvoker: bf0a87845bc3158eec32be848bd9546e79d6dd25
@@ -597,6 +611,7 @@ SPEC CHECKSUMS:
   React-logger: 9a6c684d5cd56c4129e0c2842dba75c4bfb1e981
   react-native-pager-view: da490aa1f902c9a5aeecf0909cc975ad0e92e53e
   react-native-safe-area-context: 6c12e3859b6f27b25de4fee8201cfb858432d8de
+  react-native-webview: 227ba9205abb8579116b69ea5774d9744267c65a
   React-perflogger: 281c34e42f13245c7a4d6932364d9182f8655e1a
   React-RCTActionSheet: 92f4292754a1b4a0e42bf9b1489206a06f878929
   React-RCTAnimation: 2a5bb5549758e4e594481633f3db649d11519f75
@@ -617,6 +632,7 @@ SPEC CHECKSUMS:
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: 236056dd74cda4d9d76c20306fd8c20bb087614d
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
+  YoutubePlayer-in-WKWebView: 4fca3b4f6f09940077bfbae7bddb771f2b43aacd
 
 PODFILE CHECKSUM: 7182141da09c441c36d13af969c5045d9b5a8011
 
