@@ -22,7 +22,6 @@ const Discover = () => {
   const dispatch = useAppDispatch();
   // const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
 
-  const dispatch = useAppDispatch();
   const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
 
   const callApi = async () => {
@@ -95,7 +94,7 @@ const Discover = () => {
         <Tab.Screen name="Upcoming" component={Upcoming} />
         <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
- 
+
       {visiable && <PopupVideo />}
     </View>
   );

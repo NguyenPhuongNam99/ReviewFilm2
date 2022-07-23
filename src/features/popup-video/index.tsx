@@ -2,7 +2,6 @@ import React, {useCallback, useMemo, useRef} from 'react';
 import {
   View,
   Text,
-
   StyleSheet,
   TouchableNativeFeedback,
   ScrollView,

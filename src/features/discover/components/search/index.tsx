@@ -7,7 +7,6 @@ import {
   View,
 } from 'react-native';
 import {useAppSelector, useAppDispatch} from '../../../../app/store';
-import {useAppDispatch} from '../../../../app/store';
 import {searchApi} from '../../discoverSlice';
 
 const Search = () => {
