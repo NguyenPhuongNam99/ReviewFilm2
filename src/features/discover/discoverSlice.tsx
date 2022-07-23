@@ -39,9 +39,7 @@ export const counterSlice = createSlice({
       state.dataSearch = action.payload;
     },
     searchApi: (state, action) => {
-      console.log('data redux', state.dataSearch);
       const response = state.dataSearch.filter(item => {
-        console.log('item data', item);
         const text = action.payload.toLowerCase();
         const itemData = item.title.toLowerCase();
         return itemData.indexOf(text) > -1;
