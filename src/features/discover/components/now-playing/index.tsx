@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -6,13 +6,23 @@ import {
   Image,
   ScrollView,
   ActivityIndicator,
+  TouchableOpacity,
 } from 'react-native';
 import {useAppSelector} from '../../../../app/store';
 import images from '../../../../assets/images';
+import {setVisiable, setDataClick} from '../../../popup-video/popupVideoSlice';
+import {useAppDispatch} from '../../../../app/store';
 
 const NowPlaying = () => {
   const data = useAppSelector(state => state.counterSlice.data);
   const loadingData = useAppSelector(state => state.counterSlice.loadingData);
+
+  const dispatch = useAppDispatch();
+
+  const _onPress = (item: any) => {
+    dispatch(setDataClick(item));
+    dispatch(setVisiable(true));
+  };
   return (
     <>
       {loadingData ? (
@@ -20,31 +30,36 @@ const NowPlaying = () => {
           <ActivityIndicator size={'large'} color={'yellow'} />
         </View>
       ) : (
-        <ScrollView style={styles.container}>
-          <View style={styles.container}>
-            <View style={styles.headerContent}>
-              {data.map((item, index) => {
-                return (
-                  <View style={styles.blockContent} key={index}>
-                    <View style={styles.content}>
-                      <Image
-                        defaultSource={images.LOGO_ICON}
-                        style={styles.fullWidth}
-                        resizeMode={'cover'}
-                        source={{
-                          uri: item.image,
-                        }}
-                      />
-                    </View>
-                    <Text numberOfLines={2} style={styles.textAlign}>
-                      {item.title}
-                    </Text>
-                  </View>
-                );
-              })}
+        <>
+          <ScrollView style={styles.container}>
+            <View style={styles.container}>
+              <View style={styles.headerContent}>
+                {data.map((item, index) => {
+                  return (
+                    <TouchableOpacity
+                      style={styles.blockContent}
+                      key={index}
+                      onPress={() => _onPress(item)}>
+                      <View style={styles.content}>
+                        <Image
+                          defaultSource={images.LOGO_ICON}
+                          style={styles.fullWidth}
+                          resizeMode={'cover'}
+                          source={{
+                            uri: item.image,
+                          }}
+                        />
+                      </View>
+                      <Text numberOfLines={2} style={styles.textAlign}>
+                        {item.title}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
             </View>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        </>
       )}
     </>
   );

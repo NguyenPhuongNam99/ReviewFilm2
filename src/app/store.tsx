@@ -2,6 +2,8 @@ import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 // import scheduleOverviewSlice from '../features/scheduleOverview/scheduleOverviewSlice';
 import counterSlice from '../features/discover/discoverSlice';
+import popupVideoSlice from '../features/popup-video/popupVideoSlice';
+
 import {persistReducer} from 'redux-persist';
 import {combineReducers} from 'redux';
 import thunk from 'redux-thunk';
@@ -17,6 +19,7 @@ const persistConfig = {
 
 const reducers = combineReducers({
   counterSlice: counterSlice,
+  popupVideoSlice,
 });
 const persistedReducer = persistReducer(persistConfig, reducers);
 
