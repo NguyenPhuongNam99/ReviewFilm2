@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, {useMemo, useState} from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,13 +6,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useAppSelector, useAppDispatch} from '../../../../app/store';
+import {useAppDispatch} from '../../../../app/store';
 import {searchApi} from '../../discoverSlice';
 
 const Search = () => {
   const [valueInput, setValueInput] = useState<string>('');
-  const dataSearch = useAppSelector(state => state.counterSlice.dataSearch);
-  console.log('dataFake search', dataSearch);
   const dispatch = useAppDispatch();
   // console.log('date rdeux', dataSearch);
 
