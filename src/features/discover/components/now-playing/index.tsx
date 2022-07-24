@@ -9,13 +9,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {useAppSelector} from '../../../../app/store';
-import images from '../../../../assets/images';
+import imagesIcon from '../../../../assets/images';
 // import {setVisiable, setDataClick} from '../../../popup-video/popupVideoSlice';
 // import {useAppDispatch} from '../../../../app/store';
 
 const NowPlaying = (props: any) => {
   const data = useAppSelector(state => state.counterSlice.data);
-  console.log('===========data=========', data);
 
   const loadingData = useAppSelector(state => state.counterSlice.loadingData);
 
@@ -39,9 +38,9 @@ const NowPlaying = (props: any) => {
                 }>
                 <View style={styles.content}>
                   <Image
-                    defaultSource={images.LOGO_ICON}
+                    defaultSource={imagesIcon.LOGO_ICON}
                     style={styles.fullWidth}
-                    resizeMode={'stretch'}
+                    resizeMode={'cover'}
                     source={{
                       uri: item.image,
                     }}

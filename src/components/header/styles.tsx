@@ -13,8 +13,8 @@ export const styles = StyleSheet.create({
     borderBottomColor: 'white',
     borderBottomWidth: 0.5,
     opacity: 0.9,
-    justifyContent:'space-between',
-    alignItems:'center'
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   widthItem: {
     width: '33%',
@@ -29,22 +29,21 @@ export const styles = StyleSheet.create({
   },
   colorWhite: {
     color: 'white',
-    fontWeight:'bold',
-    fontSize:18
+    fontWeight: 'bold',
+    fontSize: 18,
   },
-  icLeft:{
+  icLeft: {
     width: 20,
     height: 20,
   },
-  right:{
-    width:30,
+  right: {
+    width: 30,
     height: 30,
-    justifyContent:'center'
+    justifyContent: 'center',
   },
-  left:{
-    width:30,
+  left: {
+    width: 30,
     height: 30,
-    justifyContent:'center'
-  }
-
+    justifyContent: 'center',
+  },
 });
