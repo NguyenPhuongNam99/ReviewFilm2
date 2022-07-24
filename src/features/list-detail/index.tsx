@@ -20,28 +20,22 @@ const ListDetail = ({route}: any) => {
       <View style={styles.contanier}>
         <Header title={title} iconLeft={images.ic_back} />
         <View style={styles.contentContainer}>
-          <FlatList
-            numColumns={3}
-            columnWrapperStyle={{justifyContent: 'space-between'}}
-            data={data}
-            renderItem={({item, index}) => {
-              console.log('item===', item);
-              return (
-                <TouchableOpacity style={styles.blockContainer} key={index}>
-                  <View style={styles.topContent}>
-                    <Image
-                      defaultSource={imagesIcon.LOGO_ICON}
-                      source={{uri: item.image}}
-                      style={styles.fullWidth}
-                    />
-                  </View>
-                  <View style={styles.bottomContent}>
-                    <Text style={styles.title}>{item.title}</Text>
-                  </View>
-                </TouchableOpacity>
-              );
-            }}
-          />
+          {data.map((itemData, index) => {
+            return (
+              <TouchableOpacity style={styles.blockContainer} key={index}>
+                <View style={styles.topContent}>
+                  <Image
+                    defaultSource={imagesIcon.LOGO_ICON}
+                    source={{uri: itemData.image}}
+                    style={styles.fullWidth}
+                  />
+                </View>
+                <View style={styles.bottomContent}>
+                  <Text style={styles.title}>{itemData.title}</Text>
+                </View>
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
     </ScrollView>
