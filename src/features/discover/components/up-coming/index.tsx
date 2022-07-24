@@ -1,11 +1,10 @@
 import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useAppSelector} from '../../../../app/store';
-import images from '../../../../assets/images';
+import imagesIcon from '../../../../assets/images';
 
 const Upcoming = () => {
   const dataUpComing = useAppSelector(state => state.counterSlice.dataUpComing);
-  const loadingData = useAppSelector(state => state.counterSlice.loadingData);
 
   return (
     <ScrollView style={styles.container}>
@@ -16,7 +15,7 @@ const Upcoming = () => {
               <View style={styles.blockContent} key={index}>
                 <View style={styles.content}>
                   <Image
-                    defaultSource={images.LOGO_ICON}
+                    defaultSource={imagesIcon.LOGO_ICON}
                     style={styles.fullWidth}
                     resizeMode={'cover'}
                     source={{
@@ -35,6 +34,7 @@ const Upcoming = () => {
     </ScrollView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

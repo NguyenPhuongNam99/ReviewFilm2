@@ -1,8 +1,6 @@
 import React from 'react';
 import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
 import {styles} from './styles';
-import {images} from '../../assets';
 
 const Header = ({
   title = 'Movies',

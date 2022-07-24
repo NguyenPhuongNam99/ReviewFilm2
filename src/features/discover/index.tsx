@@ -12,7 +12,6 @@ import {
   setData,
   setDataUpComingResponse,
   setLoadingData,
-  setDataSearch,
 } from './discoverSlice';
 import PopupVideo from '../popup-video';
 
@@ -54,18 +53,6 @@ const Discover = () => {
       });
 
       //call api Search
-      await axios
-        .get(
-          'https://imdb-api.com/en/API/SearchTitle/k_ftyzt2lc/inception%202010',
-        )
-        .then(function (response) {
-          // handle success
-          dispatch(setDataSearch(JSON.stringify(response.data.results)));
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error.message);
-        });
     } catch (error) {
       console.log('error', error);
     }

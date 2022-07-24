@@ -2,10 +2,10 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Discover from '../features/discover';
 import MyLibrary from '../features/my-library';
-import List from '../features/list';
 import Icon from 'react-native-vector-icons/Fontisto';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {StackListNavigator} from './StackNavigator';
 
 const Tab = createBottomTabNavigator();
 function BottomTabNavigation() {
@@ -45,7 +45,7 @@ function BottomTabNavigation() {
       />
       <Tab.Screen
         name="List"
-        component={List}
+        component={StackListNavigator}
         options={{
           tabBarIcon: tabInfo => (
             <IconMaterialIcons

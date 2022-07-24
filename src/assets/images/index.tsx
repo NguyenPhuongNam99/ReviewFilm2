@@ -1,4 +1,4 @@
-const images = {
+const imagesIcon = {
   LOGO_ICON: require('./icon.jpeg'),
 };
-export default images;
+export default imagesIcon;
