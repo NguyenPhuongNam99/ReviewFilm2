@@ -25,7 +25,9 @@ const Header = ({
           )}
         </View>
 
-        <Text style={styles.colorWhite}>{title}</Text>
+        <Text numberOfLines={1} style={styles.colorWhite}>
+          {title}
+        </Text>
 
         <View style={styles.right}>
           {iconRight && (

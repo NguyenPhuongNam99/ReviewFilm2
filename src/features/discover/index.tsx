@@ -12,13 +12,14 @@ import {
   setData,
   setDataUpComingResponse,
   setLoadingData,
+  setDataTopRated,
 } from './discoverSlice';
 import PopupVideo from '../popup-video';
-import { images } from '../../assets';
+import {images} from '../../assets';
+import TopRated from './components/top-rated';
 
 const Tab = createMaterialTopTabNavigator();
-const Discover = ({navigation}) => {
-  const data = useAppSelector(state => state.counterSlice.data);
+const Discover = ({navigation}: any) => {
   const dispatch = useAppDispatch();
   // const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
 
@@ -46,14 +47,21 @@ const Discover = ({navigation}) => {
       //call api Up Playing
       await axios({
         method: 'get',
-        url: 'https://imdb-api.com/en/API/MostPopularMovies/k_ftyzt2lc',
+        url: 'https://imdb-api.com/API/AdvancedSearch/k_ftyzt2lc?groups=oscar_winners',
       }).then(apiResponse => {
         // process the response
         const products = apiResponse.data;
-        dispatch(setDataUpComingResponse(products.items));
+        dispatch(setDataUpComingResponse(products.results));
       });
 
-      //call api Search
+      await axios({
+        method: 'get',
+        url: 'https://imdb-api.com/en/API/MostPopularTVs/k_ftyzt2lc',
+      }).then(apiResponse => {
+        // process the response
+        const products = apiResponse.data;
+        dispatch(setDataTopRated(products.items));
+      });
     } catch (error) {
       console.log('error', error);
     }
@@ -67,8 +75,8 @@ const Discover = ({navigation}) => {
     <View style={styles.container}>
       <Header
         iconLeft={images.ic_drawer}
-        lStyle={{tintColor:'yellow'}}
-        onLeftPress={()=>navigation.openDrawer()}
+        lStyle={{tintColor: 'yellow'}}
+        onLeftPress={() => navigation.openDrawer()}
       />
       <Tab.Navigator
         screenOptions={{
@@ -83,7 +91,8 @@ const Discover = ({navigation}) => {
           },
         }}>
         <Tab.Screen name="Now Playing" component={NowPlaying} />
-        <Tab.Screen name="Upcoming" component={Upcoming} />
+        <Tab.Screen name="Popular" component={Upcoming} />
+        <Tab.Screen name="Top Rated" component={TopRated} />
         <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
 

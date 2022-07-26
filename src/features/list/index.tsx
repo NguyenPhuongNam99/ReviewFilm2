@@ -12,9 +12,9 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {dataHeaderList} from '../../constants';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/core';
+import {images} from '../../assets';
 
 const List = () => {
-  const navigation = useNavigation();
   const [loading, setLoading] = useState<Boolean>(false);
   const [data, setData] = useState({
     watchlist: '',
@@ -107,10 +107,16 @@ const List = () => {
         break;
     }
   };
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <Header title="Lists" />
-
+      <Header
+        title={'Lists'}
+        iconLeft={images.ic_back}
+        onLeftPress={() => navigation.goBack()}
+        lStyle={styles.icLeft}
+      />
       {loading ? (
         <View style={styles.loading}>
           <ActivityIndicator size={'large'} color={'yellow'} />
@@ -154,13 +160,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 6,
     marginTop: 16,
-    marginHorizontal:12
+    marginHorizontal: 12,
   },
   loading: {
     width: '100%',
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  icLeft: {
+    tintColor: 'rgb(218,184,25)',
   },
 });
 export default List;

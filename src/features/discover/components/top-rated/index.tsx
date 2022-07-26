@@ -4,27 +4,26 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  Touchable,
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useAppSelector} from '../../../../app/store';
 import imagesIcon from '../../../../assets/images';
-import axios from 'axios';
+import {useAppSelector} from '../../../../app/store';
 
-const Upcoming = props => {
-  const dataUpComing = useAppSelector(state => state.counterSlice.dataUpComing);
-
+const TopRated = props => {
+  const dataTopRated = useAppSelector(state => state.counterSlice.dataTopRated);
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <View style={styles.container}>
         <View style={styles.headerContent}>
-          {dataUpComing.map((item, index) => {
+          {dataTopRated.map((item, index) => {
             return (
               <TouchableOpacity
-                onPress={() => props.navigation.navigate('MovieDetail', {item})}
+                key={index}
                 style={styles.blockContent}
-                key={index}>
+                onPress={() =>
+                  props.navigation.navigate('MovieDetail', {item})
+                }>
                 <View style={styles.content}>
                   <Image
                     defaultSource={imagesIcon.LOGO_ICON}
@@ -34,12 +33,11 @@ const Upcoming = props => {
                       uri: item.image,
                     }}
                   />
+                  <Text numberOfLines={2} style={styles.textAlign}>
+                    {item.title}
+                  </Text>
                 </View>
-                <Text numberOfLines={2} style={styles.textAlign}>
-                  {item.title}
-                </Text>
               </TouchableOpacity>
-              // <View></View>
             );
           })}
         </View>
@@ -50,7 +48,8 @@ const Upcoming = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: '100%',
+    height: '100%',
     backgroundColor: 'black',
   },
   headerContent: {
@@ -60,6 +59,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     justifyContent: 'space-between',
     flexWrap: 'wrap',
+    marginBottom: 20,
   },
   blockContent: {
     width: '31.3%',
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
   content: {
     width: '100%',
     height: '80%',
-    backgroundColor: 'white',
   },
   imageBackground: {
     width: '100%',
@@ -81,6 +80,12 @@ const styles = StyleSheet.create({
   },
   fullWidth: {width: '100%', height: '100%', zIndex: 2},
   textAlign: {textAlign: 'center', paddingVertical: 3},
+  loading: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black',
+  },
 });
-
-export default Upcoming;
+export default TopRated;

@@ -4,12 +4,14 @@ export interface CounterState {
   data: Array<any>;
   loadingData: boolean;
   dataUpComing: Array<any>;
+  dataTopRated: Array<any>;
 }
 
 const initialState: CounterState = {
   data: [],
   loadingData: false,
   dataUpComing: [],
+  dataTopRated: [],
 };
 
 export const counterSlice = createSlice({
@@ -25,11 +27,18 @@ export const counterSlice = createSlice({
     setLoadingData: (state, action) => {
       state.loadingData = action.payload;
     },
+    setDataTopRated: (state, action) => {
+      state.dataTopRated = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {setData, setDataUpComingResponse, setLoadingData} =
-  counterSlice.actions;
+export const {
+  setData,
+  setDataUpComingResponse,
+  setLoadingData,
+  setDataTopRated,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;

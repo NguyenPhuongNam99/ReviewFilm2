@@ -31,6 +31,9 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 18,
+    width: '100%',
+    // // alignSelf: 'center',
+    textAlign: 'center',
   },
   icLeft: {
     width: 20,
@@ -45,5 +48,7 @@ export const styles = StyleSheet.create({
     width: 30,
     height: 30,
     justifyContent: 'center',
+    position: 'absolute',
+    zIndex: 1,
   },
 });

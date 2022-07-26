@@ -25,36 +25,44 @@ const NowPlaying = (props: any) => {
   //   dispatch(setVisiable(true));
   // };
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.headerContent}>
-          {data.map((item, index) => {
-            return (
-              <TouchableOpacity
-                key={index}
-                style={styles.blockContent}
-                onPress={() =>
-                  props.navigation.navigate('MovieDetail', {item})
-                }>
-                <View style={styles.content}>
-                  <Image
-                    defaultSource={imagesIcon.LOGO_ICON}
-                    style={styles.fullWidth}
-                    resizeMode={'cover'}
-                    source={{
-                      uri: item.image,
-                    }}
-                  />
-                  <Text numberOfLines={2} style={styles.textAlign}>
-                    {item.title}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            );
-          })}
+    <>
+      {loadingData ? (
+        <View style={styles.loading}>
+          <ActivityIndicator size={'large'} color={'yellow'} />
         </View>
-      </View>
-    </ScrollView>
+      ) : (
+        <ScrollView>
+          <View style={styles.container}>
+            <View style={styles.headerContent}>
+              {data.map((item, index) => {
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    style={styles.blockContent}
+                    onPress={() =>
+                      props.navigation.navigate('MovieDetail', {item})
+                    }>
+                    <View style={styles.content}>
+                      <Image
+                        defaultSource={imagesIcon.LOGO_ICON}
+                        style={styles.fullWidth}
+                        resizeMode={'cover'}
+                        source={{
+                          uri: item.image,
+                        }}
+                      />
+                      <Text numberOfLines={2} style={styles.textAlign}>
+                        {item.title}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+          </View>
+        </ScrollView>
+      )}
+    </>
   );
 };
 
@@ -71,7 +79,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    marginBottom:20
+    marginBottom: 20,
   },
   blockContent: {
     width: '31.3%',

@@ -8,7 +8,8 @@ import StackNavigator from './src/navigations/StackNavigator';
 import {PersistGate} from 'redux-persist/integration/react';
 import {persistStore} from 'redux-persist';
 import DrawerMenu from './src/navigations/DrawerNavigator';
-
+import {LogBox} from 'react-native';
+LogBox.ignoreAllLogs();
 function App() {
   let persistor = persistStore(store);
 

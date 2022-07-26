@@ -25,9 +25,8 @@ export default function StackNavigator() {
         />
         <Stack.Screen name="MovieDetail" component={MovieDetail} />
         <Stack.Screen name="Trailer" component={Trailer} />
-      <StackList.Screen name="Policy" component={Policy} />
-      <StackList.Screen name="Term" component={Term} />
-
+        <StackList.Screen name="Policy" component={Policy} />
+        <StackList.Screen name="Term" component={Term} />
       </>
     </Stack.Navigator>
   );

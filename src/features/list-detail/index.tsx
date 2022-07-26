@@ -18,13 +18,24 @@ const ListDetail = ({route, navigation}: any) => {
   return (
     <ScrollView>
       <View style={styles.contanier}>
-        <Header title={title} iconLeft={images.ic_back} />
+        <Header
+          title={title}
+          iconLeft={images.ic_back}
+          onLeftPress={() => navigation.goBack()}
+          lStyle={styles.icLeft}
+        />
+
         <View style={styles.contentContainer}>
           {data.map((itemData, index) => {
             return (
-              <TouchableOpacity onPress={()=>{{
-                navigation.navigate('MovieDetail', {item:itemData})
-              }}} style={styles.blockContainer} key={index}>
+              <TouchableOpacity
+                onPress={() => {
+                  {
+                    navigation.navigate('MovieDetail', {item: itemData});
+                  }
+                }}
+                style={styles.blockContainer}
+                key={index}>
                 <View style={styles.topContent}>
                   <Image
                     defaultSource={imagesIcon.LOGO_ICON}
@@ -75,5 +86,8 @@ const styles = StyleSheet.create({
   },
   fullWidth: {width: '100%', height: '100%'},
   title: {textAlign: 'center', paddingVertical: 3},
+  icLeft: {
+    tintColor: 'rgb(218,184,25)',
+  },
 });
 export default ListDetail;

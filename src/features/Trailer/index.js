@@ -28,6 +28,7 @@ export default function Trailer({route}) {
       `https://imdb-api.com/en/API/YouTubeTrailer/k_ftyzt2lc/${id}`,
     );
     if (data) {
+
       setVideoId(data?.videoId);
     }
     setloading(false);
