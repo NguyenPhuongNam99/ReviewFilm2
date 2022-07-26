@@ -146,7 +146,6 @@ const List = () => {
 const styles = StyleSheet.create({
   container: {flex: 1, backgroundColor: 'black'},
   blockContainer: {
-    width: '100%',
     height: 40,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -155,6 +154,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 6,
     marginTop: 16,
+    marginHorizontal:12
   },
   loading: {
     width: '100%',

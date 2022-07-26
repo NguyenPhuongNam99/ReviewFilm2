@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import StackNavigator from './src/navigations/StackNavigator';
 import {PersistGate} from 'redux-persist/integration/react';
 import {persistStore} from 'redux-persist';
+import DrawerMenu from './src/navigations/DrawerNavigator';
 
 function App() {
   let persistor = persistStore(store);
@@ -15,7 +16,7 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <StackNavigator />
+          <DrawerMenu />
         </NavigationContainer>
       </PersistGate>
     </Provider>

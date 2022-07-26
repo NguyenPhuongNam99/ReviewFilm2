@@ -14,9 +14,10 @@ import {
   setLoadingData,
 } from './discoverSlice';
 import PopupVideo from '../popup-video';
+import { images } from '../../assets';
 
 const Tab = createMaterialTopTabNavigator();
-const Discover = () => {
+const Discover = ({navigation}) => {
   const data = useAppSelector(state => state.counterSlice.data);
   const dispatch = useAppDispatch();
   // const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
@@ -45,7 +46,7 @@ const Discover = () => {
       //call api Up Playing
       await axios({
         method: 'get',
-        url: 'https://imdb-api.com/en/API/ComingSoon/k_ftyzt2lc',
+        url: 'https://imdb-api.com/en/API/MostPopularMovies/k_ftyzt2lc',
       }).then(apiResponse => {
         // process the response
         const products = apiResponse.data;
@@ -64,7 +65,11 @@ const Discover = () => {
   }, []);
   return (
     <View style={styles.container}>
-      <Header />
+      <Header
+        iconLeft={images.ic_drawer}
+        lStyle={{tintColor:'yellow'}}
+        onLeftPress={()=>navigation.openDrawer()}
+      />
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: {

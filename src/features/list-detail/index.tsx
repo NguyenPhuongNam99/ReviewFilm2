@@ -13,7 +13,7 @@ import imagesIcon from '../../assets/images';
 
 import Header from '../../components/header';
 
-const ListDetail = ({route}: any) => {
+const ListDetail = ({route, navigation}: any) => {
   const {data, title} = route.params;
   return (
     <ScrollView>
@@ -22,7 +22,9 @@ const ListDetail = ({route}: any) => {
         <View style={styles.contentContainer}>
           {data.map((itemData, index) => {
             return (
-              <TouchableOpacity style={styles.blockContainer} key={index}>
+              <TouchableOpacity onPress={()=>{{
+                navigation.navigate('MovieDetail', {item:itemData})
+              }}} style={styles.blockContainer} key={index}>
                 <View style={styles.topContent}>
                   <Image
                     defaultSource={imagesIcon.LOGO_ICON}

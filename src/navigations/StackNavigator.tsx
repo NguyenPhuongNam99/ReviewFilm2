@@ -6,6 +6,8 @@ import MovieDetail from '../features/MovieDetail';
 import Trailer from '../features/Trailer';
 import ListDetail from '../features/list-detail';
 import List from '../features/list';
+import Policy from '../features/Policy';
+import Term from '../features/Term';
 
 const Stack = createStackNavigator();
 const StackList = createStackNavigator();
@@ -23,6 +25,9 @@ export default function StackNavigator() {
         />
         <Stack.Screen name="MovieDetail" component={MovieDetail} />
         <Stack.Screen name="Trailer" component={Trailer} />
+      <StackList.Screen name="Policy" component={Policy} />
+      <StackList.Screen name="Term" component={Term} />
+
       </>
     </Stack.Navigator>
   );

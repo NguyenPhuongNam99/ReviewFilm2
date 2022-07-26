@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     justifyContent: 'space-between',
     flexWrap: 'wrap',
+    marginBottom:20
   },
   blockContent: {
     width: '31.3%',

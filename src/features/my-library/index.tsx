@@ -10,7 +10,8 @@ const MyLibrary = (props: any) => {
     <View style={{flex: 1}}>
       <Header title="My Library" />
       <View style={styles.headerContent}>
-        {data.map((item, index) => {
+
+        {data.length >0 ? data.map((item, index) => {
           return (
             <TouchableOpacity
               key={index}
@@ -30,7 +31,11 @@ const MyLibrary = (props: any) => {
               </View>
             </TouchableOpacity>
           );
-        })}
+        })
+      :<View style={{flex:1, backgroundColor:'black', height: '100%',justifyContent:'center'}}>
+        <Text style={{color:'white', textAlign:'center', fontSize:18}}>{'Your library has no video selected yet'}</Text>
+      </View>
+      }
       </View>
     </View>
   );
@@ -58,8 +63,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     flexDirection: 'row',
-    paddingHorizontal: 10,
     justifyContent: 'space-between',
     flexWrap: 'wrap',
+    backgroundColor:'black'
   },
 });

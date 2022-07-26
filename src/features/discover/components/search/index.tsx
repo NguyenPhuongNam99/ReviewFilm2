@@ -12,7 +12,7 @@ import {
 import axios from 'axios';
 import imagesIcon from '../../../../assets/images';
 
-const Search = () => {
+const Search = (props) => {
   const [valueInput, setValueInput] = useState<string>('');
   const [dataSearch, setDataSearch] = useState();
   const [loading, setLoading] = useState<boolean>(false);
@@ -66,7 +66,7 @@ const Search = () => {
           data={dataSearch}
           renderItem={({item}) => {
             return (
-              <View style={styles.contentContainer}>
+              <TouchableOpacity onPress={()=>props.navigation.navigate('MovieDetail', {item})} style={styles.contentContainer}>
                 <View style={styles.leftContent}>
                   <Image
                     defaultSource={imagesIcon.LOGO_ICON}
@@ -83,7 +83,7 @@ const Search = () => {
                     {item.description}
                   </Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           }}
         />
@@ -95,8 +95,8 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: {flex: 1, backgroundColor: 'black'},
   input: {
-    width: '100%',
-    height: 30,
+    // width: '100%',
+    // height: 30,
     paddingLeft: 10,
     color: 'white',
     borderWidth: 1,
@@ -104,30 +104,29 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   searchContainer: {
-    width: '100%',
-    height: 30,
+    height: 40,
     flexDirection: 'row',
     marginTop: 10,
     justifyContent: 'space-between',
+    alignItems:'center',
+    marginHorizontal:12,
   },
-  searchLeft: {width: '80%', height: 30},
+  searchLeft: {flex:1, marginRight:10},
   searchRight: {
-    width: '16%',
-    height: 30,
   },
   clickContainer: {
-    width: 60,
-    height: 30,
+    height: 40,
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 3,
+    paddingHorizontal:20
   },
   contentContainer: {
-    width: '100%',
     height: 90,
     marginTop: 16,
     flexDirection: 'row',
+    marginHorizontal:12
   },
   leftContent: {
     width: '20%',

@@ -1,9 +1,10 @@
 import React from 'react';
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, Touchable, TouchableOpacity, View} from 'react-native';
 import {useAppSelector} from '../../../../app/store';
 import imagesIcon from '../../../../assets/images';
+import axios from 'axios';
 
-const Upcoming = () => {
+const Upcoming = (props) => {
   const dataUpComing = useAppSelector(state => state.counterSlice.dataUpComing);
 
   return (
@@ -11,24 +12,26 @@ const Upcoming = () => {
       <View style={styles.container}>
         <View style={styles.headerContent}>
           {dataUpComing.map((item, index) => {
-            return (
-              <View style={styles.blockContent} key={index}>
-                <View style={styles.content}>
-                  <Image
-                    defaultSource={imagesIcon.LOGO_ICON}
-                    style={styles.fullWidth}
-                    resizeMode={'cover'}
-                    source={{
-                      uri: item.image,
-                    }}
-                  />
-                </View>
-                <Text numberOfLines={2} style={styles.textAlign}>
-                  {item.title}
-                </Text>
-              </View>
-            );
-          })}
+              return (
+                <TouchableOpacity onPress={()=> props.navigation.navigate('MovieDetail', {item})} style={styles.blockContent} key={index}>
+                  <View style={styles.content}>
+                    <Image
+                      defaultSource={imagesIcon.LOGO_ICON}
+                      style={styles.fullWidth}
+                      resizeMode={'cover'}
+                      source={{
+                        uri: item.image,
+                      }}
+                    />
+                  </View>
+                  <Text numberOfLines={2} style={styles.textAlign}>
+                    {item.title}
+                  </Text>
+                </TouchableOpacity>
+                // <View></View>
+              );
+            })
+           }
         </View>
       </View>
     </ScrollView>
