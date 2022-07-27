@@ -8,7 +8,10 @@ import ListDetail from '../features/list-detail';
 import List from '../features/list';
 import Policy from '../features/Policy';
 import Term from '../features/Term';
-
+import AboutUs from '../features/AboutUs';
+import RateApp from '../features/RateApp';
+import Share from '../features/Share';
+import Report from '../features/Report';
 const Stack = createStackNavigator();
 const StackList = createStackNavigator();
 
@@ -27,6 +30,10 @@ export default function StackNavigator() {
         <Stack.Screen name="Trailer" component={Trailer} />
         <StackList.Screen name="Policy" component={Policy} />
         <StackList.Screen name="Term" component={Term} />
+        <StackList.Screen name='AboutUs' component={AboutUs}/>
+        <StackList.Screen name='RateApp' component={RateApp}/>
+        <StackList.Screen name='Share' component={Share}/>
+        <StackList.Screen name='Report' component={Report}/>
       </>
     </Stack.Navigator>
   );
