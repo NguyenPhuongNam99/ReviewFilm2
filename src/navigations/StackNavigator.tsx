@@ -8,9 +8,12 @@ import ListDetail from '../features/list-detail';
 import List from '../features/list';
 import Policy from '../features/Policy';
 import Term from '../features/Term';
+import ChannelScreen from '../features/ChannelScreen';
+import ChannelDetail from '../features/channel-detail';
 
 const Stack = createStackNavigator();
 const StackList = createStackNavigator();
+const StackChannel = createStackNavigator();
 
 export default function StackNavigator() {
   return (
@@ -41,5 +44,17 @@ export const StackListNavigator = () => {
       <StackList.Screen name="ListAll" component={List} />
       <StackList.Screen name="ListDetail" component={ListDetail} />
     </StackList.Navigator>
+  );
+};
+
+export const StackChannelScreen = () => {
+  return (
+    <StackChannel.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <StackChannel.Screen name="ChannelScreen" component={ChannelScreen} />
+      <StackChannel.Screen name="ChannelDetail" component={ChannelDetail} />
+    </StackChannel.Navigator>
   );
 };

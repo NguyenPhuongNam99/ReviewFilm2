@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/Fontisto';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackListNavigator} from './StackNavigator';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {StackChannelScreen} from './StackNavigator';
 
 const Tab = createBottomTabNavigator();
 function BottomTabNavigation() {
@@ -41,6 +43,21 @@ function BottomTabNavigation() {
               color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
             />
           ),
+        }}
+      />
+
+      <Tab.Screen
+        name="ChannelStack"
+        component={StackChannelScreen}
+        options={{
+          tabBarIcon: tabInfo => (
+            <MaterialCommunityIcons
+              name="movie-roll"
+              size={20}
+              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
+            />
+          ),
+          title: 'Channel',
         }}
       />
       <Tab.Screen
