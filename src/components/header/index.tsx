@@ -3,7 +3,7 @@ import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './styles';
 
 const Header = ({
-  title = 'Movies',
+  title = 'Movies Box',
   iconLeft,
   iconRight,
   onLeftPress,
