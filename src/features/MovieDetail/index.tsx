@@ -18,7 +18,7 @@ import axios from 'axios';
 
 const {width, height} = Dimensions.get('window');
 
-export default function MovieDetail(props: any) {
+const MovieDetail = (props: any) => {
   const {item} = props.route.params;
   const dispatch = useAppDispatch();
   const data = useAppSelector(state => state.MovieSlice.data);
@@ -95,11 +95,13 @@ export default function MovieDetail(props: any) {
 
         <View style={styles.bottom}>
           <TouchableOpacity
+            style={styles.first}
             onPress={() => props.navigation.navigate('Trailer', {id: item.id})}>
             <Image source={images.ic_playtrailer} style={styles.iconPlay} />
           </TouchableOpacity>
 
           <TouchableOpacity
+            style={styles.center}
             onPress={() => {
               dispatch(SaveMovie(item));
             }}>
@@ -108,12 +110,17 @@ export default function MovieDetail(props: any) {
               style={styles.iconPlay}
             />
           </TouchableOpacity>
-          <View />
+          <View style={styles.viewEmpty}></View>
+          <TouchableOpacity
+            style={styles.casting}
+            onPress={() => props.navigation.navigate('Casting' as never)}>
+            <Text>Casting</Text>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   icLeft: {
@@ -135,6 +142,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     justifyContent: 'space-between',
+    width: '100%',
   },
   title: {
     fontSize: 20,
@@ -178,4 +186,24 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
+  viewEmpty: {width: '30%', height: 30},
+  center: {
+    width: '30%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  first: {width: '30%'},
+  casting: {
+    width: '23%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 30,
+    borderRadius: 17,
+    backgroundColor: 'white',
+    position: 'absolute',
+    right: 12,
+    top: 10,
+  },
 });
+
+export default MovieDetail;

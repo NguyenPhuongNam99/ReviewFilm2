@@ -10,6 +10,7 @@ import Policy from '../features/Policy';
 import Term from '../features/Term';
 import ChannelScreen from '../features/ChannelScreen';
 import ChannelDetail from '../features/channel-detail';
+import Casting from '../features/casting';
 
 const Stack = createStackNavigator();
 const StackList = createStackNavigator();
@@ -30,6 +31,7 @@ export default function StackNavigator() {
         <Stack.Screen name="Trailer" component={Trailer} />
         <StackList.Screen name="Policy" component={Policy} />
         <StackList.Screen name="Term" component={Term} />
+        <StackList.Screen name="Casting" component={Casting} />
       </>
     </Stack.Navigator>
   );

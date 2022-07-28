@@ -20,7 +20,7 @@ const ChannelDetail = ({route}) => {
       />
       <Ionicons
         name="chevron-back-outline"
-        color={'yellow'}
+        color={'rgb(218,184,25)'}
         size={30}
         style={styles.back}
         onPress={() => navigation.goBack()}
