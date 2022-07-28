@@ -12,6 +12,8 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import imagesIcon from '../../../../assets/images';
+import {useAppDispatch} from '../../../../app/store';
+import {searchApi} from '../../discoverSlice';
 
 const Search = props => {
   const [valueInput, setValueInput] = useState<string>('');

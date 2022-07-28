@@ -10,6 +10,7 @@ import {persistStore} from 'redux-persist';
 import DrawerMenu from './src/navigations/DrawerNavigator';
 import {LogBox} from 'react-native';
 LogBox.ignoreAllLogs();
+
 function App() {
   let persistor = persistStore(store);
 
@@ -17,7 +18,7 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <DrawerMenu />
+          <StackNavigator />
         </NavigationContainer>
       </PersistGate>
     </Provider>
