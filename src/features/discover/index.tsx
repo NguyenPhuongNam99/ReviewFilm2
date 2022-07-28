@@ -71,6 +71,8 @@ const Discover = ({navigation}: any) => {
     callApi();
     // getDataUsingSimpleGetCall();
   }, []);
+
+  React.useEffect(() => {}, []);
   return (
     <View style={styles.container}>
       <Header

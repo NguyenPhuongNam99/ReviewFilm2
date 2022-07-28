@@ -260,6 +260,7 @@ dependencies {
 implementation project(':react-native-vector-icons')
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+  implementation project(':react-native-bluetooth-escpos-printer')
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
