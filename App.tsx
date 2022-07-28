@@ -18,7 +18,7 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <StackNavigator />
+          <DrawerMenu />
         </NavigationContainer>
       </PersistGate>
     </Provider>

@@ -50,5 +50,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     zIndex: 1,
+    marginLeft:12
   },
 });

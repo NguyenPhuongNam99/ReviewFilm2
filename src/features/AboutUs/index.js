@@ -4,7 +4,7 @@ import Fonts from '../../assets/Fonts';
 import Header from '../../components/header';
 import {images} from '../../assets';
 
-const AboutUs = (navigation) => {
+const AboutUs = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Header

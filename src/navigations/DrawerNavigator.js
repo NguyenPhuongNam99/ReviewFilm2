@@ -76,7 +76,7 @@ const onRateApp=async()=>{
           onPress={onShareApp}
           labelStyle={styles.labelStyle}
           style={styles.styleItem} />
-          <DrawerItem label="Report bug & Help"
+          <DrawerItem label="Report bug"
            onPress={() => props.navigation.navigate("Report")}
           labelStyle={styles.labelStyle}
           style={styles.styleItem}/>

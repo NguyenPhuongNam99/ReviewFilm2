@@ -1,9 +1,17 @@
 import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity,Linking } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-const Report = () => {
+import Header from '../../components/header';
+import { images } from '../../assets';
+const Report = (props) => {
     return (
         <View style={styles.container}>
+            <Header
+                title={'Report bugs'}
+                iconLeft={images.ic_back}
+                onLeftPress={()=>props.navigation.goBack()}
+                lStyle={{tintColor:'white'}}
+            />
             <View style={{ alignItems: "center", margin: 30 }}>
                 <Icon name="email" size={70} color="#FFA100" />
             </View>
