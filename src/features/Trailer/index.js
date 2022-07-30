@@ -12,7 +12,6 @@ import axios from 'axios';
 const {width, height} = Dimensions.get('window');
 
 export default function Trailer({route}) {
-  console.log('====route=======', route);
   const {id} = route.params;
   const playerRef = useRef();
   const [videoId, setVideoId] = useState('');
@@ -26,7 +25,7 @@ export default function Trailer({route}) {
   const getTrailer = async () => {
     setloading(true);
     const {data} = await axios.get(
-      `https://imdb-api.com/en/API/YouTubeTrailer/k_ftyzt2lc/${id}`,
+      `https://imdb-api.com/en/API/YouTubeTrailer/k_ftyzt2lc/${id?.replace('showtimes','')}`,
     );
     if (data) {
       setVideoId(data?.videoId);
@@ -50,14 +49,17 @@ export default function Trailer({route}) {
           videoId={videoId}
           preventFullScreen={true}
           onFullScreenChange={e => console.log(e)}
-          webViewProps={{
-            injectedJavaScript: `
-          var element = document.getElementsByClassName('container')[0];
-          element.style.position = 'unset';
-          element.style.paddingBottom = 'unset';
-          true;
-        `,
-          }}
+          showFullscreenButton={false}
+          fullscreen={true}
+          controls = {1}
+        //   webViewProps={{
+        //     injectedJavaScript: `
+        //   var element = document.getElementsByClassName('container')[0];
+        //   element.style.position = 'unset';
+        //   element.style.paddingBottom = 'unset';
+        //   true;
+        // `,
+        //   }}
         />
       </SafeAreaView>
     );

@@ -33,7 +33,7 @@ const MovieDetail = (props: any) => {
   const getDetail = async () => {
     setloading(true);
     const res = await axios.get(
-      `https://imdb-api.com/en/API/Title/k_ftyzt2lc/${item.id}/Trailer`,
+      `https://imdb-api.com/en/API/Title/k_ftyzt2lc/${item.id?.replace('showtimes','')}/Trailer`,
     );
     setdetail(res.data);
     setloading(false);
