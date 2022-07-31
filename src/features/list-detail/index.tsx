@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {images} from '../../assets';
 import imagesIcon from '../../assets/images';
+import Admod from '../admod';
 
 import Header from '../../components/header';
 
@@ -49,6 +50,9 @@ const ListDetail = ({route, navigation}: any) => {
               </TouchableOpacity>
             );
           })}
+        </View>
+        <View style={{position: 'absolute', bottom: 0, width: '100%'}}>
+          <Admod />
         </View>
       </View>
     </ScrollView>

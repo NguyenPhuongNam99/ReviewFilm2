@@ -17,6 +17,7 @@ import {
 import PopupVideo from '../popup-video';
 import {images} from '../../assets';
 import TopRated from './components/top-rated';
+import Admod from '../admod';
 
 const Tab = createMaterialTopTabNavigator();
 const Discover = ({navigation}: any) => {
@@ -98,7 +99,10 @@ const Discover = ({navigation}: any) => {
         <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
 
-      {visiable && <PopupVideo />}
+      {/* {visiable && <PopupVideo />} */}
+      <View style={{position: 'absolute', bottom: 0, width: '100%'}}>
+        <Admod />
+      </View>
     </View>
   );
 };

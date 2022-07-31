@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/core';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Admod from '../admod';
 
 const ChannelDetail = ({route}) => {
   const {item} = route.params;
@@ -56,6 +57,9 @@ const ChannelDetail = ({route}) => {
       <TouchableOpacity style={styles.chat}>
         <Entypo name="chat" color={'black'} size={30} />
       </TouchableOpacity>
+      <View style={{position: 'absolute', bottom: 0, width: '100%'}}>
+        <Admod />
+      </View>
     </View>
   );
 };
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    bottom: 30,
+    bottom: '15%',
     right: 10,
   },
 });

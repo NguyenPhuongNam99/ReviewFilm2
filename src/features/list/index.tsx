@@ -13,6 +13,7 @@ import {dataHeaderList} from '../../constants';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/core';
 import {images} from '../../assets';
+import Admod from '../admod';
 
 const List = () => {
   const [loading, setLoading] = useState<Boolean>(false);
@@ -145,6 +146,9 @@ const List = () => {
           }}
         />
       )}
+      <View style={{position: 'absolute', bottom: 0, width: '100%'}}>
+        <Admod />
+      </View>
     </View>
   );
 };

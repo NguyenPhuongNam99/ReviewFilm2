@@ -10,6 +10,7 @@ import {
 import Header from '../../components/header';
 import imagesIcon from '../../assets/images';
 import {useNavigation} from '@react-navigation/core';
+import Admod from '../admod';
 
 const ChannelScreen = () => {
   const navigation = useNavigation();
@@ -131,6 +132,9 @@ const ChannelScreen = () => {
           })}
         </View>
       </ScrollView>
+      <View style={{position: 'absolute', bottom: 0, width: '100%'}}>
+        <Admod />
+      </View>
     </View>
   );
 };
