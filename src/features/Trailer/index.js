@@ -52,7 +52,7 @@ export default function Trailer({route}) {
           play // control playback of video with true/false
           fullscreen // control whether the video should play in fullscreen or inline
           loop // control whether the video should loop when ended
-          style={{width: '100%', height: '90%', backgroundColor: 'black'}}
+          style={{width: '100%', height: '100%', backgroundColor: 'black'}}
         />
       </SafeAreaView>
     );
