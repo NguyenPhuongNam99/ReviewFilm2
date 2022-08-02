@@ -161,7 +161,7 @@ PODS:
     - FBLazyVector (= 0.69.2)
     - RCTRequired (= 0.69.2)
     - React-Core (= 0.69.2)
-  - RCTYouTube (2.0.2):
+  - RCTYouTube (2.0.0):
     - React
     - YoutubePlayer-in-WKWebView (~> 0.3.1)
   - React (0.69.2):
@@ -367,8 +367,6 @@ PODS:
     - RCTTypeSafety
     - React
     - ReactCommon/turbomodule/core
-  - react-native-webview (11.23.0):
-    - React-Core
   - React-perflogger (0.69.2)
   - React-RCTActionSheet (0.69.2):
     - React-Core/RCTActionSheetHeaders (= 0.69.2)
@@ -535,7 +533,6 @@ DEPENDENCIES:
   - react-native-ble-manager (from `../node_modules/react-native-ble-manager`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
-  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -633,8 +630,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
-  react-native-webview:
-    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -709,7 +704,7 @@ SPEC CHECKSUMS:
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: b723d4d6da2795df58189a01f92856b6912cf256
   RCTTypeSafety: 3973d2fcf39f43f7819e840d56ea6b2fe45996a0
-  RCTYouTube: a8bb45705622a6fc9decf64be04128d3658ed411
+  RCTYouTube: 57458fe8653bb696b7d7585326d735d01b871af8
   React: 242d4ffb093ed57c4761307a69b23b2479930ae9
   React-bridging: 66938204bc9d703b9c357201a40bf498aeb14412
   React-callinvoker: bf0a87845bc3158eec32be848bd9546e79d6dd25
@@ -724,7 +719,6 @@ SPEC CHECKSUMS:
   react-native-ble-manager: 283cf4e61dd2268256babe4ef18ac29bd082901b
   react-native-pager-view: da490aa1f902c9a5aeecf0909cc975ad0e92e53e
   react-native-safe-area-context: 6c12e3859b6f27b25de4fee8201cfb858432d8de
-  react-native-webview: e771bc375f789ebfa02a26939a57dbc6fa897336
   React-perflogger: 281c34e42f13245c7a4d6932364d9182f8655e1a
   React-RCTActionSheet: 92f4292754a1b4a0e42bf9b1489206a06f878929
   React-RCTAnimation: 2a5bb5549758e4e594481633f3db649d11519f75

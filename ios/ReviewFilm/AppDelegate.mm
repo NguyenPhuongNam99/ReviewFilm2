@@ -6,7 +6,7 @@
 
 #import <React/RCTAppSetupUtils.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
-
+#import <AVFoundation/AVFoundation.h>
 #if RCT_NEW_ARCH_ENABLED
 #import <React/CoreModulesPlugins.h>
 #import <React/RCTCxxBridgeDelegate.h>
@@ -34,6 +34,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 {
   RCTAppSetupPrepareApp(application);
 [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
+[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error: nil];
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 
 #if RCT_NEW_ARCH_ENABLED

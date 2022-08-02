@@ -7,7 +7,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import React, {useRef, useEffect, useState} from 'react';
-import YoutubePlayer, {YoutubeIframeRef} from 'react-native-youtube-iframe';
+import YouTube from 'react-native-youtube';
 import axios from 'axios';
 const {width, height} = Dimensions.get('window');
 
@@ -25,13 +25,17 @@ export default function Trailer({route}) {
   const getTrailer = async () => {
     setloading(true);
     const {data} = await axios.get(
-      `https://imdb-api.com/en/API/YouTubeTrailer/k_ftyzt2lc/${id?.replace('showtimes','')}`,
+      `https://imdb-api.com/en/API/YouTubeTrailer/k_ftyzt2lc/${id?.replace(
+        'showtimes',
+        '',
+      )}`,
     );
     if (data) {
       setVideoId(data?.videoId);
     }
     setloading(false);
   };
+  console.log('video0 id', videoId);
 
   if (loading) {
     return (
@@ -41,25 +45,14 @@ export default function Trailer({route}) {
     );
   } else {
     return (
-      <SafeAreaView style={{backgroundColor: 'black'}}>
-        <YoutubePlayer
-          ref={playerRef}
-          height={height + 50}
-          width={width}
-          videoId={videoId}
-          preventFullScreen={true}
-          onFullScreenChange={e => console.log(e)}
-          showFullscreenButton={false}
-          fullscreen={true}
-          controls = {1}
-        //   webViewProps={{
-        //     injectedJavaScript: `
-        //   var element = document.getElementsByClassName('container')[0];
-        //   element.style.position = 'unset';
-        //   element.style.paddingBottom = 'unset';
-        //   true;
-        // `,
-        //   }}
+      <SafeAreaView
+        style={{backgroundColor: 'black', width: '100%', height: '100%'}}>
+        <YouTube
+          videoId={videoId} // The YouTube video ID
+          play // control playback of video with true/false
+          fullscreen // control whether the video should play in fullscreen or inline
+          loop // control whether the video should loop when ended
+          style={{width: '100%', height: '90%', backgroundColor: 'black'}}
         />
       </SafeAreaView>
     );
