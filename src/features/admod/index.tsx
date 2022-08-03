@@ -25,15 +25,6 @@ function Admod() {
 
   RewardedAd.createForAdRequest(TestIds.REWARDED);
 
-  return (
-    // <Button
-    //   title="Show Interstitial"
-    //   onPress={() => {
-    //     interstitial.show();
-    //   }}
-    // />
-
-    <BannerAd unitId={TestIds.BANNER} size={'ANCHORED_ADAPTIVE_BANNER'} />
-  );
+  return <BannerAd unitId={TestIds.BANNER} size={'ANCHORED_ADAPTIVE_BANNER'} />;
 }
 export default Admod;

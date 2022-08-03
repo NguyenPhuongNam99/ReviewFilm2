@@ -5,6 +5,7 @@ export interface CounterState {
   loadingData: boolean;
   dataUpComing: Array<any>;
   dataTopRated: Array<any>;
+  count: number;
 }
 
 const initialState: CounterState = {
@@ -12,6 +13,7 @@ const initialState: CounterState = {
   loadingData: false,
   dataUpComing: [],
   dataTopRated: [],
+  count: 0,
 };
 
 export const counterSlice = createSlice({
@@ -30,6 +32,9 @@ export const counterSlice = createSlice({
     setDataTopRated: (state, action) => {
       state.dataTopRated = action.payload;
     },
+    setCount: state => {
+      state.count = state.count + 1;
+    },
   },
 });
 
@@ -39,6 +44,7 @@ export const {
   setDataUpComingResponse,
   setLoadingData,
   setDataTopRated,
+  setCount,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -100,7 +100,7 @@ const Discover = ({navigation}: any) => {
       </Tab.Navigator>
 
       {/* {visiable && <PopupVideo />} */}
-      <View style={{position: 'absolute', bottom: 0, width: '100%'}}>
+      <View style={{position: 'absolute', bottom: 0, width: '100%', left: 0}}>
         <Admod />
       </View>
     </View>

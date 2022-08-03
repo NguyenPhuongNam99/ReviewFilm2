@@ -8,7 +8,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackListNavigator} from './StackNavigator';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {StackChannelScreen} from './StackNavigator';
-
 const Tab = createBottomTabNavigator();
 function BottomTabNavigation() {
   return (

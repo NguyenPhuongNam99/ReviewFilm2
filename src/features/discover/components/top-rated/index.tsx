@@ -8,10 +8,15 @@ import {
   View,
 } from 'react-native';
 import imagesIcon from '../../../../assets/images';
-import {useAppSelector} from '../../../../app/store';
+import {useAppSelector, useAppDispatch} from '../../../../app/store';
+import {setCount} from '../../discoverSlice';
 
 const TopRated = props => {
   const dataTopRated = useAppSelector(state => state.counterSlice.dataTopRated);
+  const dispatch = useAppDispatch();
+  const _onClick = (item: any) => {
+    props.navigation.navigate('MovieDetail', {item}), dispatch(setCount());
+  };
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -21,9 +26,7 @@ const TopRated = props => {
               <TouchableOpacity
                 key={index}
                 style={styles.blockContent}
-                onPress={() =>
-                  props.navigation.navigate('MovieDetail', {item})
-                }>
+                onPress={() => _onClick(item)}>
                 <View style={styles.content}>
                   <Image
                     defaultSource={imagesIcon.LOGO_ICON}

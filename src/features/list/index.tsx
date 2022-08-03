@@ -74,8 +74,6 @@ const List = () => {
           nationFlim: dataResponse[7].data.results,
         });
         setLoading(false);
-        // data[1]; // second promise resolve data.results
-        //data[2]data.results
       })
       .catch(error => {
         console.log(error);

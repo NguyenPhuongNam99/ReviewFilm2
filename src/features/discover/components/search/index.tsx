@@ -14,6 +14,7 @@ import axios from 'axios';
 import imagesIcon from '../../../../assets/images';
 import {useAppDispatch} from '../../../../app/store';
 import {searchApi} from '../../discoverSlice';
+import {setCount} from '../../discoverSlice';
 
 const Search = props => {
   const [valueInput, setValueInput] = useState<string>('');
@@ -37,6 +38,10 @@ const Search = props => {
       setLoading(false);
       console.log('error', error);
     }
+  };
+  const dispatch = useAppDispatch();
+  const _onClick = (item: any) => {
+    props.navigation.navigate('MovieDetail', {item}), dispatch(setCount());
   };
 
   return (
@@ -72,7 +77,7 @@ const Search = props => {
           renderItem={({item}) => {
             return (
               <TouchableOpacity
-                onPress={() => props.navigation.navigate('MovieDetail', {item})}
+                onPress={() => _onClick(item)}
                 style={styles.contentContainer}>
                 <View style={styles.leftContent}>
                   <Image

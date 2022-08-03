@@ -9,8 +9,27 @@ import {
 import React, {useRef, useEffect, useState} from 'react';
 import YouTube from 'react-native-youtube';
 import axios from 'axios';
-const {width, height} = Dimensions.get('window');
+import {
+  InterstitialAd,
+  TestIds,
+  BannerAd,
+  RewardedAd,
+  AppOpenAd,
+  AdEventType,
+  GAMBannerAd,
+  BannerAdSize,
+  RewardedAdEventType,
+} from 'react-native-google-mobile-ads';
 
+const {width, height} = Dimensions.get('window');
+const adUnitId = __DEV__
+  ? TestIds.REWARDED
+  : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+
+const rewarded = RewardedAd.createForAdRequest(adUnitId, {
+  requestNonPersonalizedAdsOnly: true,
+  keywords: ['fashion', 'clothing'],
+});
 export default function Trailer({route}) {
   const {id} = route.params;
   const playerRef = useRef();
@@ -35,7 +54,37 @@ export default function Trailer({route}) {
     }
     setloading(false);
   };
-  console.log('video0 id', videoId);
+
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const unsubscribeLoaded = rewarded.addAdEventListener(
+      RewardedAdEventType.LOADED,
+      () => {
+        setLoaded(true);
+      },
+    );
+    const unsubscribeEarned = rewarded.addAdEventListener(
+      RewardedAdEventType.EARNED_REWARD,
+      reward => {
+        console.log('User earned reward of ', reward);
+      },
+    );
+
+    // Start loading the rewarded ad straight away
+    rewarded.load();
+
+    // Unsubscribe from events on unmount
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeEarned();
+    };
+  }, []);
+
+  // No advert ready to show yet
+  if (!loaded) {
+    return null;
+  }
 
   if (loading) {
     return (
@@ -53,6 +102,7 @@ export default function Trailer({route}) {
           fullscreen // control whether the video should play in fullscreen or inline
           loop // control whether the video should loop when ended
           style={{width: '100%', height: '100%', backgroundColor: 'black'}}
+          onReady={() => rewarded.show()}
         />
       </SafeAreaView>
     );

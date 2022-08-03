@@ -8,13 +8,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useAppSelector} from '../../../../app/store';
+import {useAppSelector, useAppDispatch} from '../../../../app/store';
 import imagesIcon from '../../../../assets/images';
 import axios from 'axios';
+import { setCount } from '../../discoverSlice';
 
 const Upcoming = props => {
   const dataUpComing = useAppSelector(state => state.counterSlice.dataUpComing);
-
+  const dispatch = useAppDispatch();
+  const _onClick = (item: any) => {
+    props.navigation.navigate('MovieDetail', {item}), dispatch(setCount());
+  };
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container}>
@@ -22,7 +26,7 @@ const Upcoming = props => {
           {dataUpComing.map((item, index) => {
             return (
               <TouchableOpacity
-                onPress={() => props.navigation.navigate('MovieDetail', {item})}
+                onPress={() => _onClick(item)}
                 style={styles.blockContent}
                 key={index}>
                 <View style={styles.content}>

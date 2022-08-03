@@ -8,22 +8,18 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
-import {useAppSelector} from '../../../../app/store';
+import {useAppSelector, useAppDispatch} from '../../../../app/store';
 import imagesIcon from '../../../../assets/images';
-// import {setVisiable, setDataClick} from '../../../popup-video/popupVideoSlice';
-// import {useAppDispatch} from '../../../../app/store';
+import {setCount} from '../../discoverSlice';
 
 const NowPlaying = (props: any) => {
   const data = useAppSelector(state => state.counterSlice.data);
-
+  const dispatch = useAppDispatch();
   const loadingData = useAppSelector(state => state.counterSlice.loadingData);
 
-  // const dispatch = useAppDispatch();
-
-  // const _onPress = (item: any) => {
-  //   dispatch(setDataClick(item));
-  //   dispatch(setVisiable(true));
-  // };
+  const _onClick = (item: any) => {
+    props.navigation.navigate('MovieDetail', {item}), dispatch(setCount());
+  };
   return (
     <>
       {loadingData ? (
@@ -39,9 +35,7 @@ const NowPlaying = (props: any) => {
                   <TouchableOpacity
                     key={index}
                     style={styles.blockContent}
-                    onPress={() =>
-                      props.navigation.navigate('MovieDetail', {item})
-                    }>
+                    onPress={() => _onClick(item)}>
                     <View style={styles.content}>
                       <Image
                         defaultSource={imagesIcon.LOGO_ICON}
