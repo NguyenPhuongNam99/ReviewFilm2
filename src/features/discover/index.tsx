@@ -14,17 +14,17 @@ import {
   setLoadingData,
   setDataTopRated,
 } from './discoverSlice';
-import PopupVideo from '../popup-video';
+// import PopupVideo from '../popup-video';
 import {images} from '../../assets';
 import TopRated from './components/top-rated';
-import Admod from '../admod';
+// import Admod from '../admod';
 
 const Tab = createMaterialTopTabNavigator();
 const Discover = ({navigation}: any) => {
   const dispatch = useAppDispatch();
   // const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
 
-  const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
+  // const visiable = useAppSelector(state => state.popupVideoSlice.visiable);
 
   const callApi = async () => {
     try {
@@ -100,9 +100,9 @@ const Discover = ({navigation}: any) => {
       </Tab.Navigator>
 
       {/* {visiable && <PopupVideo />} */}
-      <View style={{position: 'absolute', bottom: 0, width: '100%', left: 0}}>
+      {/* <View style={{position: 'absolute', bottom: 0, width: '100%', left: 0}}>
         <Admod />
-      </View>
+      </View> */}
     </View>
   );
 };

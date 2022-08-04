@@ -1,8 +1,4 @@
 {
   "name": "ReviewFilm",
-  "displayName": "Movies box review",
-  "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-3940256099942544/6300978111",
-    "ios_app_id": "ca-app-pub-3940256099942544/6300978111"
-  }
+  "displayName": "Movies box review"
 }
