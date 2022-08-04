@@ -1,30 +1,30 @@
-import React, {useEffect, useState} from 'react';
-import {Button, Text, View} from 'react-native';
-import {
-  InterstitialAd,
-  TestIds,
-  BannerAd,
-  RewardedAd,
-  AppOpenAd,
-} from 'react-native-google-mobile-ads';
+// import React, {useEffect, useState} from 'react';
+// import {Button, Text, View} from 'react-native';
+// import {
+//   InterstitialAd,
+//   TestIds,
+//   BannerAd,
+//   RewardedAd,
+//   AppOpenAd,
+// } from 'react-native-google-mobile-ads';
 
-// # App Open
-// AppOpenAd.createForAdRequest(TestIds.APP_OPEN);
+// // # App Open
+// // AppOpenAd.createForAdRequest(TestIds.APP_OPEN);
 
-// # Interstitial
-// InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
+// // # Interstitial
+// // InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
 
-// # Rewarded
-// RewardedAd.createForAdRequest(TestIds.REWARDED);
+// // # Rewarded
+// // RewardedAd.createForAdRequest(TestIds.REWARDED);
 
-function Admod() {
-  // No advert ready to show yet
-  AppOpenAd.createForAdRequest(TestIds.APP_OPEN);
+// function Admod() {
+//   // No advert ready to show yet
+//   AppOpenAd.createForAdRequest(TestIds.APP_OPEN);
 
-  InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
+//   InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
 
-  RewardedAd.createForAdRequest(TestIds.REWARDED);
+//   RewardedAd.createForAdRequest(TestIds.REWARDED);
 
-  return <BannerAd unitId={TestIds.BANNER} size={'ANCHORED_ADAPTIVE_BANNER'} />;
-}
-export default Admod;
+//   return <BannerAd unitId={TestIds.BANNER} size={'ANCHORED_ADAPTIVE_BANNER'} />;
+// }
+// export default Admod;
