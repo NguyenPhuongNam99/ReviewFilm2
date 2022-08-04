@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Button, Text, View} from 'react-native';
+import React from 'react';
 import {
   InterstitialAd,
   TestIds,
