@@ -13,7 +13,7 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   // debug: true,
-  // whitelist: ['fetchedMemeSlice', 'loadMemesSlice'],
+  whitelist: ['count'],
   // timeout: 20000,
 };
 
