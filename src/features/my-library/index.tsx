@@ -2,7 +2,6 @@ import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import {useAppSelector} from '../../app/store';
 import Header from '../../components/header';
-// import Admod from '../admod';
 
 const MyLibrary = (props: any) => {
   const data = useAppSelector(state => state.MovieSlice.data);
@@ -49,9 +48,6 @@ const MyLibrary = (props: any) => {
           </View>
         )}
       </View>
-      {/* <View style={{position: 'absolute', bottom: 0, width: '100%'}}>
-        <Admod />
-      </View> */}
     </View>
   );
 };

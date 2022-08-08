@@ -269,7 +269,7 @@
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
-				8A7E3C3628953E7A00EA93A9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				8A7E3C3628953E7A00EA93A9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */,
 			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
@@ -554,7 +554,7 @@
 				PRODUCT_NAME = ReviewFilm;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -581,7 +581,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.movieboxapp.reviewfilm;
 				PRODUCT_NAME = ReviewFilm;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -756,7 +756,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8A7E3C3628953E7A00EA93A9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+		8A7E3C3628953E7A00EA93A9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
 			requirement = {

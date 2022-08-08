@@ -15,27 +15,9 @@ import {images} from '../../assets';
 import {SaveMovie} from './MovieSlice';
 import {useAppDispatch, useAppSelector} from '../../app/store';
 import axios from 'axios';
-// import {
-//   InterstitialAd,
-//   TestIds,
-//   BannerAd,
-//   RewardedAd,
-//   AppOpenAd,
-//   AdEventType,
-//   GAMBannerAd,
-//   BannerAdSize,
-//   RewardedAdEventType,
-// } from 'react-native-google-mobile-ads';
 
 const {width, height} = Dimensions.get('window');
-// const adUnitId = __DEV__
-//   ? TestIds.REWARDED
-//   : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
-// const rewarded = RewardedAd.createForAdRequest(adUnitId, {
-//   requestNonPersonalizedAdsOnly: true,
-//   keywords: ['fashion', 'clothing'],
-// });
 const MovieDetail = (props: any) => {
   const {item} = props.route.params;
   const dispatch = useAppDispatch();
@@ -61,37 +43,6 @@ const MovieDetail = (props: any) => {
     setdetail(res.data);
     setloading(false);
   };
-  // useEffect(() => {
-  //   const unsubscribeLoaded = rewarded.addAdEventListener(
-  //     RewardedAdEventType.LOADED,
-  //     () => {
-  //       setLoaded(true);
-  //     },
-  //   );
-  //   const unsubscribeEarned = rewarded.addAdEventListener(
-  //     RewardedAdEventType.EARNED_REWARD,
-  //     reward => {
-  //       console.log('User earned reward of ', reward);
-  //     },
-  //   );
-
-  //   // Start loading the rewarded ad straight away
-  //   rewarded.load();
-
-  //   // Unsubscribe from events on unmount
-  //   return () => {
-  //     unsubscribeLoaded();
-  //     unsubscribeEarned();
-  //   };
-  // }, []);
-
-  // // No advert ready to show yet
-  // const _onBack = () => {
-  //   if (count % 5 === 0) {
-  //     rewarded.show();
-  //   }
-  //   props.navigation.goBack();
-  // };
 
   return (
     <View style={{flex: 1, backgroundColor: 'black'}}>
