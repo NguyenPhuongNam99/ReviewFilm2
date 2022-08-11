@@ -297,6 +297,11 @@ PODS:
     - RCTTypeSafety
     - React
     - ReactCommon/turbomodule/core
+  - react-native-video (5.2.0):
+    - React-Core
+    - react-native-video/Video (= 5.2.0)
+  - react-native-video/Video (5.2.0):
+    - React-Core
   - React-perflogger (0.69.2)
   - React-RCTActionSheet (0.69.2):
     - React-Core/RCTActionSheetHeaders (= 0.69.2)
@@ -457,6 +462,7 @@ DEPENDENCIES:
   - react-native-ble-manager (from `../node_modules/react-native-ble-manager`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-video (from `../node_modules/react-native-video`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -544,6 +550,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-video:
+    :path: "../node_modules/react-native-video"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -611,7 +619,7 @@ SPEC CHECKSUMS:
   React: 242d4ffb093ed57c4761307a69b23b2479930ae9
   React-bridging: 66938204bc9d703b9c357201a40bf498aeb14412
   React-callinvoker: bf0a87845bc3158eec32be848bd9546e79d6dd25
-  React-Codegen: e5c04fc987e909433915f247699402ece1955aa0
+  React-Codegen: 66206c236633198ef1e85550664e636754947a44
   React-Core: 5acd5715010b56d23846859b3a68c316dad09d5b
   React-CoreModules: 73db18e3aaf5e29f73e4b7c9ddf6ead823795d06
   React-cxxreact: 0fc57a199d2d69c0e0401c9eab944be9b972bf1b
@@ -622,6 +630,7 @@ SPEC CHECKSUMS:
   react-native-ble-manager: 283cf4e61dd2268256babe4ef18ac29bd082901b
   react-native-pager-view: da490aa1f902c9a5aeecf0909cc975ad0e92e53e
   react-native-safe-area-context: 6c12e3859b6f27b25de4fee8201cfb858432d8de
+  react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28
   React-perflogger: 281c34e42f13245c7a4d6932364d9182f8655e1a
   React-RCTActionSheet: 92f4292754a1b4a0e42bf9b1489206a06f878929
   React-RCTAnimation: 2a5bb5549758e4e594481633f3db649d11519f75

@@ -1,18 +1,11 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  ActivityIndicator,
-  SafeAreaView,
-} from 'react-native';
-import React, {useRef, useEffect, useState} from 'react';
-import YouTube from 'react-native-youtube';
 import axios from 'axios';
+import React, {useEffect, useRef, useState} from 'react';
+import {ActivityIndicator, Dimensions, StyleSheet, View} from 'react-native';
+import VideoPlayer from 'react-native-video-controls';
 
 const {width, height} = Dimensions.get('window');
 
-export default function Trailer({route}) {
+export default function Trailer({route, navigation}) {
   const {id} = route.params;
   const playerRef = useRef();
   const [videoId, setVideoId] = useState('');
@@ -26,13 +19,21 @@ export default function Trailer({route}) {
   const getTrailer = async () => {
     setloading(true);
     const {data} = await axios.get(
-      `https://imdb-api.com/en/API/YouTubeTrailer/k_ftyzt2lc/${id?.replace(
+      `https://imdb-api.com/en/API/Title/k_ftyzt2lc/${id?.replace(
         'showtimes',
         '',
-      )}`,
+      )}/Trailer`,
     );
     if (data) {
-      setVideoId(data?.videoId);
+      console.log('=======videoId=====', data.trailer);
+      const movie = await axios.post(
+        `https://freedownloadvideo.net/wp-json/aio-dl/video-data?url=${data.trailer.linkEmbed}`,
+      );
+      console.log('=========movie========', movie.data);
+      const {medias} = movie.data;
+      if (medias?.length > 0) {
+        setVideoId(medias[0]?.url);
+      }
     }
     setloading(false);
   };
@@ -45,16 +46,15 @@ export default function Trailer({route}) {
     );
   } else {
     return (
-      <SafeAreaView
-        style={{backgroundColor: 'black', width: '100%', height: '100%'}}>
-        <YouTube
-          videoId={videoId} // The YouTube video ID
-          play // control playback of video with true/false
-          fullscreen // control whether the video should play in fullscreen or inline
-          loop // control whether the video should loop when ended
-          style={{width: '100%', height: '100%', backgroundColor: 'black'}}
+      <View style={{flex: 1}}>
+        <VideoPlayer
+          source={{
+            uri: videoId,
+          }}
+          navigator={navigation}
+          style={{flex: 1}}
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }
