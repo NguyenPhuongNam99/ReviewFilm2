@@ -89,7 +89,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    marginTop: 30,
+    // marginTop: 30,
+    position: 'absolute',
+    bottom: 10,
+    left: 0,
   },
   chat: {
     width: 50,

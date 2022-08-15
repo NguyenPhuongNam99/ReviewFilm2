@@ -116,11 +116,6 @@ const MovieDetail = (props: any) => {
             />
           </TouchableOpacity>
           <View style={styles.viewEmpty}></View>
-          <TouchableOpacity
-            style={styles.casting}
-            onPress={() => props.navigation.navigate('Casting' as never)}>
-            <Text>Casting</Text>
-          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </View>
