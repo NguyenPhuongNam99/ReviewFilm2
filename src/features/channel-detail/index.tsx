@@ -37,25 +37,10 @@ const ChannelDetail = ({route}) => {
 
       <Text style={styles.new}>{item.new}</Text>
       <Text style={[styles.new, styles.lineheight]}>{item.decription}</Text>
-      <View style={styles.iconBottom}>
-        <TouchableOpacity>
-          <MaterialCommunityIcons
-            name="share-variant"
-            color={'white'}
-            size={30}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <MaterialCommunityIcons name="check" color={'white'} size={30} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <AntDesign name="like2" color={'white'} size={30} />
-        </TouchableOpacity>
-      </View>
 
-      <TouchableOpacity style={styles.chat}>
+      {/* <TouchableOpacity style={styles.chat}>
         <Entypo name="chat" color={'black'} size={30} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };
