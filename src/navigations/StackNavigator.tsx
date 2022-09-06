@@ -11,8 +11,6 @@ import Term from '../features/Term';
 
 import ChannelScreen from '../features/ChannelScreen';
 import ChannelDetail from '../features/channel-detail';
-import Casting from '../features/casting';
-
 
 import AboutUs from '../features/AboutUs';
 import RateApp from '../features/RateApp';
@@ -38,21 +36,11 @@ export default function StackNavigator() {
         <Stack.Screen name="Trailer" component={Trailer} />
         <StackList.Screen name="Policy" component={Policy} />
         <StackList.Screen name="Term" component={Term} />
-<<<<<<< Updated upstream
-
         <StackList.Screen name="Casting" component={Casting} />
-
-        <StackList.Screen name='AboutUs' component={AboutUs}/>
-        <StackList.Screen name='RateApp' component={RateApp}/>
-        <StackList.Screen name='Share' component={Share}/>
-        <StackList.Screen name='Report' component={Report}/>
-
-=======
         <StackList.Screen name="AboutUs" component={AboutUs} />
         <StackList.Screen name="RateApp" component={RateApp} />
         <StackList.Screen name="Share" component={Share} />
         <StackList.Screen name="Report" component={Report} />
->>>>>>> Stashed changes
       </>
     </Stack.Navigator>
   );
