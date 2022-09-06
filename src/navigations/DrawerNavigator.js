@@ -1,6 +1,6 @@
-import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
+import {createDrawerNavigator, DrawerItem} from '@react-navigation/drawer';
 
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Dimensions,
   Image,
@@ -10,45 +10,48 @@ import {
   StyleSheet,
   Text,
   useWindowDimensions,
-  Linking
+  Linking,
 } from 'react-native';
 import StackNavigator from './StackNavigator';
-const { width, height } = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 const Drawer = createDrawerNavigator();
 import axios from 'axios';
 import Share from 'react-native-share';
 
 function CustomDrawerContent(props) {
-const onShareApp = async()=>{
+  const onShareApp = async () => {
+    const response = await axios.post(
+      'https://nguyennhattruong.herokuapp.com/users/getLinApp',
+    );
+    const {code, data} = response.data;
+    if (code === 200 && data) {
+      onShare(data);
+    }
+  };
+  const onShare = async uri => {
+    const options = {url: uri};
+    Share.open(options)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        err && console.log(err);
+      });
+  };
 
-  const response = await axios.post('https://nguyennhattruong.herokuapp.com/users/getLinApp')
-  const {code, data} = response.data
-  if(code === 200 && data){
-   onShare(data)
-  }
-}
-const onShare = async(uri)=>{
-  const options={url:uri}
-  Share.open(options)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    err && console.log(err);
-  });
-}
-
-const onRateApp=async()=>{
-  const response = await axios.post('https://nguyennhattruong.herokuapp.com/users/getLinApp')
-  const {code, data} = response.data
-  if(code === 200 && data){
-    Linking.openURL(data)
-  }
-}
+  const onRateApp = async () => {
+    const response = await axios.post(
+      'https://nguyennhattruong.herokuapp.com/users/getLinApp',
+    );
+    const {code, data} = response.data;
+    if (code === 200 && data) {
+      Linking.openURL(data);
+    }
+  };
   return (
     <>
       <ScrollView
-        style={{ backgroundColor: 'black' }}
+        style={{backgroundColor: 'black'}}
         {...props}
         showsVerticalScrollIndicator={false}>
         <DrawerItem
@@ -64,22 +67,36 @@ const onRateApp=async()=>{
           labelStyle={styles.labelStyle}
           style={styles.styleItem}
         />
-        <DrawerItem label="About Us"
-          onPress={() => props.navigation.navigate("AboutUs")}
+        <DrawerItem
+          label="About Us"
+          onPress={() => props.navigation.navigate('AboutUs')}
           labelStyle={styles.labelStyle}
-          style={styles.styleItem} />
-          <DrawerItem label="Rate App"
+          style={styles.styleItem}
+        />
+        <DrawerItem
+          label="Rate App"
           onPress={onRateApp}
           labelStyle={styles.labelStyle}
-          style={styles.styleItem} />
-          <DrawerItem label="Share this App"
+          style={styles.styleItem}
+        />
+        <DrawerItem
+          label="Share this App"
           onPress={onShareApp}
           labelStyle={styles.labelStyle}
+<<<<<<< Updated upstream
           style={styles.styleItem} />
           <DrawerItem label="Report bug"
            onPress={() => props.navigation.navigate("Report")}
+=======
+          style={styles.styleItem}
+        />
+        <DrawerItem
+          label="Report bug & Help"
+          onPress={() => props.navigation.navigate('Report')}
+>>>>>>> Stashed changes
           labelStyle={styles.labelStyle}
-          style={styles.styleItem}/>
+          style={styles.styleItem}
+        />
       </ScrollView>
     </>
   );
@@ -96,7 +113,7 @@ const DrawerMenu = props => {
         drawerType={dimensions.width >= 768 ? 'permanent' : 'front'}
         drawerContent={props => <CustomDrawerContent {...props} />}>
         <Drawer.Screen
-          options={{ headerShown: false }}
+          options={{headerShown: false}}
           name="Main"
           component={StackNavigator}
         />
@@ -158,5 +175,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 0,
   },
-  SafeAreaViewBackground: { backgroundColor: 'black' }
+  SafeAreaViewBackground: {backgroundColor: 'black'},
 });

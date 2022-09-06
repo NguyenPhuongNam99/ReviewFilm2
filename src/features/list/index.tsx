@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import Header from '../../components/header';
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Entypo';
 import {dataHeaderList} from '../../constants';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/core';
@@ -110,7 +110,7 @@ const List = () => {
   return (
     <View style={styles.container}>
       <Header
-        title={'Lists'}
+        title={'Nhạc Sống 2022'}
         iconLeft={images.ic_back}
         onLeftPress={() => navigation.goBack()}
         lStyle={styles.icLeft}
@@ -136,8 +136,8 @@ const List = () => {
                     } as never,
                   )
                 }>
+                <Icon name="folder-music" size={20} />
                 <Text>{item.title}</Text>
-                <Icon name="right" size={20} />
               </TouchableOpacity>
             );
           }}
