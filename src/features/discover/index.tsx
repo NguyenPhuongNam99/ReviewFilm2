@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import {styles} from './styles';
 import Header from '../../components/header';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -17,6 +17,7 @@ import {
 // import PopupVideo from '../popup-video';
 import {images} from '../../assets';
 import TopRated from './components/top-rated';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createMaterialTopTabNavigator();
 const Discover = ({navigation}: any) => {
@@ -76,26 +77,25 @@ const Discover = ({navigation}: any) => {
   return (
     <View style={styles.container}>
       <Header
-        iconLeft={images.ic_drawer}
+        iconRight={images.icon_download}
         lStyle={{tintColor: 'yellow'}}
-        onLeftPress={() => navigation.openDrawer()}
+        // onLeftPress={() => navigation.openDrawer()}
       />
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: {
-            backgroundColor: 'black',
+            backgroundColor: 'blue',
           },
           tabBarLabelStyle: {
-            color: 'white',
+            color: 'red',
           },
           tabBarIndicatorStyle: {
-            backgroundColor: 'yellow',
+            backgroundColor: 'red',
           },
         }}>
-        <Tab.Screen name="Now Playing" component={NowPlaying} />
+        <Tab.Screen name="Nhạc Hay" component={NowPlaying} />
         <Tab.Screen name="Popular" component={Upcoming} />
         <Tab.Screen name="Top Rated" component={TopRated} />
-        <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
     </View>
   );

@@ -4,4 +4,6 @@ export const images = {
   ic_playtrailer: require('../assets/imgs/ic_playTrailer.png'),
   ic_plus: require('../assets/imgs/ic_plus.png'),
   ic_tick: require('../assets/imgs/ic_tick.png'),
+  icon_download: require('../assets/imgs/icon_download.png'),
+  ic_threeDot: require('../assets/imgs/ic_threeDot.png'),
 };

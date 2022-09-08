@@ -12,9 +12,14 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import imagesIcon from '../../../../assets/images';
+<<<<<<< Updated upstream
 import {useAppDispatch} from '../../../../app/store';
 import {searchApi} from '../../discoverSlice';
 import {setCount} from '../../discoverSlice';
+=======
+import Header from '../../../../components/header';
+import {images} from '../../../../assets';
+>>>>>>> Stashed changes
 
 const Search = props => {
   const [valueInput, setValueInput] = useState<string>('');
@@ -26,9 +31,7 @@ const Search = props => {
       setLoading(true);
       await axios({
         method: 'get',
-        url:
-          'https://imdb-api.com/API/AdvancedSearch/k_ftyzt2lc/?title=' +
-          valueInput,
+        url: 'https://nhacremixhay.net/api/' + valueInput,
       }).then(apiResponse => {
         const products = apiResponse;
         setDataSearch(products.data.results);
@@ -46,14 +49,15 @@ const Search = props => {
 
   return (
     <View style={styles.container}>
+      <Header title="TÌM KIẾM ÂM NHẠC" iconRight={images.icon_download} />
       <View style={styles.searchContainer}>
         <View style={styles.searchLeft}>
           <TextInput
             value={valueInput}
             onChangeText={(text: string) => setValueInput(text)}
             style={[styles.input, Platform.OS === 'ios' && styles.inputIos]}
-            placeholder={''}
-            placeholderTextColor={'white'}
+            placeholder={'Nhập tên bài hát,tác giả,ca sỹ...'}
+            placeholderTextColor={'gray'}
           />
         </View>
 
@@ -105,14 +109,14 @@ const Search = props => {
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: 'black'},
+  container: {flex: 1, backgroundColor: 'white'},
   input: {
     // width: '100%',
     // height: 30,
     paddingLeft: 10,
-    color: 'white',
+    color: 'black',
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: 'black',
     borderRadius: 3,
   },
   inputIos: {
